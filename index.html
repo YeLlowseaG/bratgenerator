@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brat Generator - Create Your Own Brat Album Cover</title>
+    <meta name="description" content="Generate custom album covers inspired by Charli XCX's Brat. Free online tool with green and white backgrounds.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="#" class="brand-link">Brat Generator</a>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#create" class="nav-link nav-cta">Create</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <span class="flag">🇺🇸</span>
+                    <span class="lang-text">EN</span>
+                </div>
+                <button class="sign-in-btn">Sign in</button>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header class="hero" id="create">
+            <div class="hero-content">
+                <h1 class="hero-title">Brat Generator</h1>
+                <p class="hero-subtitle">Create your own brat-style album cover in seconds</p>
+            </div>
+        </header>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-grid">
+                <!-- Left: Editor -->
+                <div class="editor-panel">
+                    <h2 class="editor-title">Type your words here ↓</h2>
+                    
+                    <div class="input-group">
+                        <input type="text" id="text-input" class="text-input" placeholder="Please type any words you like" value="">
+                    </div>
+
+                    <div class="mode-group">
+                        <button class="mode-btn active" data-mode="green">
+                            <span class="mode-color green"></span>
+                            Green Mode
+                        </button>
+                        <button class="mode-btn" data-mode="white">
+                            <span class="mode-color white"></span>
+                            White Mode
+                        </button>
+                    </div>
+
+                    <div class="effect-group">
+                        <label class="effect-toggle">
+                            <input type="checkbox" id="speed-lines" class="toggle-checkbox">
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-label">⚡ Speed Lines Effect</span>
+                        </label>
+                    </div>
+
+                    <div class="action-group">
+                        <button id="download-btn" class="download-btn">📥 Download PNG</button>
+                        <button id="share-btn" class="share-btn">📱 Share</button>
+                    </div>
+
+                    <!-- Features moved from hero -->
+                    <div class="editor-features">
+                        <span class="feature-badge">✨ Free Forever</span>
+                        <span class="feature-badge">🎨 No Design Skills</span>
+                        <span class="feature-badge">⚡ Instant Download</span>
+                    </div>
+                </div>
+
+                <!-- Right: Preview -->
+                <div class="preview-panel">
+                    <h3 class="preview-title">Live Preview</h3>
+                    <div class="canvas-container">
+                        <canvas id="preview-canvas" width="300" height="300"></canvas>
+                    </div>
+                    <p class="preview-note">Changes appear instantly as you type</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="footer-text">
+                    Inspired by Charli XCX's Brat album • Made with ❤️ for the brat summer
+                </p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">About</a>
+                    <a href="#" class="footer-link">Contact</a>
+                    <a href="#" class="footer-link">Privacy</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Share Modal -->
+    <div id="share-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Share Your Creation</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Right-click the image and select "Save Image As..." or take a screenshot to share!</p>
+                <div class="share-buttons">
+                    <button class="share-btn twitter">Share on Twitter</button>
+                    <button class="share-btn instagram">Share on Instagram</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
