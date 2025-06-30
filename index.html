@@ -15,6 +15,16 @@
     <meta name="geo.region" content="US">
     <meta name="geo.placename" content="United States">
     
+    <!-- Alternate language versions -->
+    <link rel="alternate" hreflang="en" href="https://www.bratgenerator.store/">
+    <link rel="alternate" hreflang="nl" href="https://www.bratgenerator.store/?lang=nl">
+    <link rel="alternate" hreflang="fr" href="https://www.bratgenerator.store/?lang=fr">
+    <link rel="alternate" hreflang="de" href="https://www.bratgenerator.store/?lang=de">
+    <link rel="alternate" hreflang="pt" href="https://www.bratgenerator.store/?lang=pt">
+    <link rel="alternate" hreflang="es" href="https://www.bratgenerator.store/?lang=es">
+    <link rel="alternate" hreflang="it" href="https://www.bratgenerator.store/?lang=it">
+    <link rel="alternate" hreflang="x-default" href="https://www.bratgenerator.store/">
+    
     <!-- Additional SEO Meta Tags -->
     <meta name="theme-color" content="#8ace00">
     <meta name="msapplication-TileColor" content="#8ace00">
@@ -148,23 +158,56 @@
             <div class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Home</a>
+                        <a href="#" class="nav-link" data-translate="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" id="gallery-link">Gallery</a>
+                        <a href="#" class="nav-link" id="gallery-link" data-translate="gallery">Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" id="about-link">About</a>
+                        <a href="#" class="nav-link" id="about-link" data-translate="about">About</a>
                     </li>
                 </ul>
             </div>
 
             <div class="nav-actions">
                 <div class="language-selector">
-                    <span class="flag">🇺🇸</span>
-                    <span class="lang-text">EN</span>
+                    <div class="language-current">
+                        <span class="flag">🇺🇸</span>
+                        <span class="lang-text">EN</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </div>
+                    <div class="language-dropdown">
+                        <div class="language-option" data-lang="en">
+                            <span class="flag">🇺🇸</span>
+                            <span class="lang-name" data-translate="english">English</span>
+                        </div>
+                        <div class="language-option" data-lang="nl">
+                            <span class="flag">🇳🇱</span>
+                            <span class="lang-name" data-translate="dutch">Nederlands</span>
+                        </div>
+                        <div class="language-option" data-lang="fr">
+                            <span class="flag">🇫🇷</span>
+                            <span class="lang-name" data-translate="french">Français</span>
+                        </div>
+                        <div class="language-option" data-lang="de">
+                            <span class="flag">🇩🇪</span>
+                            <span class="lang-name" data-translate="german">Deutsch</span>
+                        </div>
+                        <div class="language-option" data-lang="pt">
+                            <span class="flag">🇵🇹</span>
+                            <span class="lang-name" data-translate="portuguese">Português</span>
+                        </div>
+                        <div class="language-option" data-lang="es">
+                            <span class="flag">🇪🇸</span>
+                            <span class="lang-name" data-translate="spanish">Español</span>
+                        </div>
+                        <div class="language-option" data-lang="it">
+                            <span class="flag">🇮🇹</span>
+                            <span class="lang-name" data-translate="italian">Italiano</span>
+                        </div>
+                    </div>
                 </div>
-                <button class="sign-in-btn">Sign in</button>
+                <button class="sign-in-btn" data-translate="signIn">Sign in</button>
             </div>
 
             <div class="nav-toggle" id="nav-toggle">
@@ -196,8 +239,8 @@
         <!-- Header Section -->
         <header class="hero" id="create" role="banner">
             <div class="hero-content">
-                <h1 class="hero-title">Brat Generator</h1>
-                <p class="hero-subtitle">Create your own brat-style album cover in seconds</p>
+                <h1 class="hero-title" data-translate="heroTitle">Brat Generator</h1>
+                <p class="hero-subtitle" data-translate="heroSubtitle">Create your own brat-style album cover in seconds</p>
             </div>
         </header>
 
@@ -206,22 +249,22 @@
             <div class="content-grid">
                 <!-- Left: Editor -->
                 <div class="editor-panel" aria-label="Brat cover editor">
-                    <h2 class="editor-title">Type your words here ↓</h2>
+                    <h2 class="editor-title" data-translate="editorTitle">Type your words here ↓</h2>
                     
                     <div class="input-group">
                         <label for="text-input" class="sr-only">Enter text for your brat cover</label>
-                        <input type="text" id="text-input" class="text-input" placeholder="Please type any words you like" value="" aria-describedby="text-help">
+                        <input type="text" id="text-input" class="text-input" data-translate="placeholder" placeholder="Please type any words you like" value="" aria-describedby="text-help">
                         <div id="text-help" class="sr-only">Type any text to create your custom brat-style album cover</div>
                     </div>
 
                     <div class="mode-group">
                         <button class="mode-btn active" data-mode="green">
                             <span class="mode-color green"></span>
-                            Green Mode
+                            <span data-translate="greenMode">Green Mode</span>
                         </button>
                         <button class="mode-btn" data-mode="white">
                             <span class="mode-color white"></span>
-                            White Mode
+                            <span data-translate="whiteMode">White Mode</span>
                         </button>
                     </div>
 
@@ -229,33 +272,33 @@
                         <label class="effect-toggle">
                             <input type="checkbox" id="speed-lines" class="toggle-checkbox">
                             <span class="toggle-slider"></span>
-                            <span class="toggle-label">⚡ Speed Lines Effect</span>
+                            <span class="toggle-label" data-translate="speedLines">⚡ Speed Lines Effect</span>
                         </label>
                     </div>
 
                     <div class="action-group">
-                        <button id="download-btn" class="download-btn">📥 Download PNG</button>
+                        <button id="download-btn" class="download-btn" data-translate="download">📥 Download PNG</button>
                         <div class="share-group">
-                            <button id="twitter-share-btn" class="share-btn twitter-btn">🐦 Share on Twitter</button>
-                            <button id="instagram-share-btn" class="share-btn instagram-btn">📸 IG</button>
+                            <button id="twitter-share-btn" class="share-btn twitter-btn" data-translate="shareTwitter">🐦 Share on Twitter</button>
+                            <button id="instagram-share-btn" class="share-btn instagram-btn" data-translate="shareInstagram">📸 IG</button>
                         </div>
                     </div>
 
                     <!-- Features moved from hero -->
                     <div class="editor-features">
-                        <span class="feature-badge">✨ Free Forever</span>
-                        <span class="feature-badge">🎨 No Design Skills</span>
-                        <span class="feature-badge">⚡ Instant Download</span>
+                        <span class="feature-badge" data-translate="featureFree">✨ Free Forever</span>
+                        <span class="feature-badge" data-translate="featureNoSkills">🎨 No Design Skills</span>
+                        <span class="feature-badge" data-translate="featureInstant">⚡ Instant Download</span>
                     </div>
                 </div>
 
                 <!-- Right: Preview -->
                 <div class="preview-panel" aria-label="Live preview of your brat cover">
-                    <h3 class="preview-title">Live Preview</h3>
+                    <h3 class="preview-title" data-translate="previewTitle">Live Preview</h3>
                     <div class="canvas-container">
                         <canvas id="preview-canvas" width="300" height="300" aria-label="Preview of your custom brat album cover"></canvas>
                     </div>
-                    <p class="preview-note">Changes appear instantly as you type</p>
+                    <p class="preview-note" data-translate="previewNote">Changes appear instantly as you type</p>
                 </div>
             </div>
         </main>
@@ -263,27 +306,27 @@
         <!-- How It Works Section -->
         <section class="how-it-works">
             <div class="container">
-                <h2 class="how-title">✨ How It Works</h2>
+                <h2 class="how-title" data-translate="howItWorksTitle">✨ How It Works</h2>
                 <div class="steps-grid">
                     <div class="step-item">
                         <div class="step-icon">💭</div>
                         <div class="step-content">
-                            <h3>Type your text</h3>
-                            <p>Enter any words you want</p>
+                            <h3 data-translate="step1Title">Type your text</h3>
+                            <p data-translate="step1Desc">Enter any words you want</p>
                         </div>
                     </div>
                     <div class="step-item">
                         <div class="step-icon">🎨</div>
                         <div class="step-content">
-                            <h3>Pick your style</h3>
-                            <p>Choose green or white background</p>
+                            <h3 data-translate="step2Title">Pick your style</h3>
+                            <p data-translate="step2Desc">Choose green or white background</p>
                         </div>
                     </div>
                     <div class="step-item">
                         <div class="step-icon">📥</div>
                         <div class="step-content">
-                            <h3>Download & share</h3>
-                            <p>Get your cover instantly</p>
+                            <h3 data-translate="step3Title">Download & share</h3>
+                            <p data-translate="step3Desc">Get your cover instantly</p>
                         </div>
                     </div>
                 </div>
@@ -296,36 +339,29 @@
                 <div class="footer-content">
                     <div class="footer-brand">
                         <h3 class="footer-logo">Brat Generator</h3>
-                        <p class="footer-desc">Create and share your brat-style covers with the world</p>
+                        <p class="footer-desc" data-translate="footerDesc">Create and share your brat-style covers with the world</p>
                     </div>
                     
                     <div class="footer-links">
                         <div class="link-group">
-                            <h4>Quick Links</h4>
-                            <a href="#" onclick="showCreateSection()">Home</a>
-                            <a href="#" onclick="showGallery()">Gallery</a>
-                            <a href="#" onclick="showAbout()">About</a>
+                            <h4 data-translate="quickLinks">Quick Links</h4>
+                            <a href="#" onclick="showCreateSection()" data-translate="home">Home</a>
+                            <a href="#" onclick="showGallery()" data-translate="gallery">Gallery</a>
+                            <a href="#" onclick="showAbout()" data-translate="about">About</a>
                         </div>
                         
                         <div class="link-group">
-                            <h4>Support</h4>
-                            <a href="mailto:hilenhwong70@gmail.com?subject=Brat Generator - Contact & Support">Contact</a>
-                            <a href="privacy-policy.html">Privacy Policy</a>
-                            <a href="terms-of-service.html">Terms of Service</a>
+                            <h4 data-translate="support">Support</h4>
+                            <a href="mailto:hilenhwong70@gmail.com?subject=Brat Generator - Contact & Support" data-translate="contact">Contact</a>
+                            <a href="privacy-policy.html" data-translate="privacyPolicy">Privacy Policy</a>
+                            <a href="terms-of-service.html" data-translate="termsOfService">Terms of Service</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="footer-bottom">
-                    <div class="footer-stats">
-                        <span>50K+ covers created</span>
-                        <span>•</span>
-                        <span>100+ countries</span>
-                        <span>•</span>
-                        <span>1M+ social shares</span>
-                    </div>
                     <div class="footer-copyright">
-                        <p>&copy; 2024 Brat Generator. Made with 💚 for the brat community.</p>
+                        <p>&copy; 2025 Brat Generator. <span data-translate="footerCopyright">Made with 💚 for the brat community.</span></p>
                     </div>
                 </div>
             </div>
@@ -334,8 +370,8 @@
         <!-- Gallery Section -->
         <section id="gallery" class="gallery-section" style="display: none;" role="region" aria-labelledby="gallery-title">
             <div class="container">
-                <h2 class="section-title" id="gallery-title">Brat Cover Gallery</h2>
-                <p class="section-subtitle">Get inspired by covers created by our community</p>
+                <h2 class="section-title" id="gallery-title" data-translate="galleryTitle">Brat Cover Gallery</h2>
+                <p class="section-subtitle" data-translate="gallerySubtitle">Get inspired by covers created by our community</p>
                 
                 <div class="content-container">
                     <div class="gallery-grid">
@@ -401,7 +437,7 @@
                     </div>
                     
                     <div class="gallery-cta">
-                        <button class="cta-button" onclick="showCreateSection()">Create Your Own</button>
+                        <button class="cta-button" onclick="showCreateSection()" data-translate="createYourOwn">Create Your Own</button>
                     </div>
                 </div>
             </div>
@@ -412,22 +448,22 @@
                     <div class="footer-content">
                         <div class="footer-brand">
                             <h3 class="footer-logo">Brat Generator</h3>
-                            <p class="footer-desc">Create and share your brat-style covers with the world</p>
+                            <p class="footer-desc" data-translate="footerDesc">Create and share your brat-style covers with the world</p>
                         </div>
                         
                         <div class="footer-links">
                             <div class="link-group">
-                                <h4>Quick Links</h4>
-                                <a href="#" onclick="showCreateSection()">Home</a>
-                                <a href="#" onclick="showGallery()">Gallery</a>
-                                <a href="#" onclick="showAbout()">About</a>
+                                <h4 data-translate="quickLinks">Quick Links</h4>
+                                <a href="#" onclick="showCreateSection()" data-translate="home">Home</a>
+                                <a href="#" onclick="showGallery()" data-translate="gallery">Gallery</a>
+                                <a href="#" onclick="showAbout()" data-translate="about">About</a>
                             </div>
                             
                             <div class="link-group">
-                                <h4>Support</h4>
-                                <a href="mailto:hilenhwong70@gmail.com?subject=Brat Generator - Contact & Support">Contact</a>
-                                <a href="privacy-policy.html">Privacy Policy</a>
-                                <a href="terms-of-service.html">Terms of Service</a>
+                                <h4 data-translate="support">Support</h4>
+                                <a href="mailto:hilenhwong70@gmail.com?subject=Brat Generator - Contact & Support" data-translate="contact">Contact</a>
+                                <a href="privacy-policy.html" data-translate="privacyPolicy">Privacy Policy</a>
+                                <a href="terms-of-service.html" data-translate="termsOfService">Terms of Service</a>
                             </div>
                         </div>
                     </div>
@@ -441,7 +477,7 @@
                             <span>1M+ social shares</span>
                         </div>
                         <div class="footer-copyright">
-                            <p>&copy; 2024 Brat Generator. Made with 💚 for the brat community.</p>
+                            <p>&copy; 2024 Brat Generator. <span data-translate="footerCopyright">Made with 💚 for the brat community.</span></p>
                         </div>
                     </div>
                 </div>
@@ -451,74 +487,74 @@
         <!-- About Section -->
         <section id="about" class="about-section" style="display: none;" role="region" aria-labelledby="about-title">
             <div class="container">
-                <h2 class="section-title" id="about-title">About Brat Generator</h2>
+                <h2 class="section-title" id="about-title" data-translate="aboutTitle">About Brat Generator</h2>
                 
                 <div class="content-container">
                     <div class="about-content">
                     <div class="about-text">
-                        <h3>Born from Brat Summer 2024</h3>
-                        <p>When Charli XCX dropped "Brat" in June 2024, it wasn't just an album—it was a cultural moment. The iconic lime green cover with its bold, lowercase typography became the defining aesthetic of summer 2024.</p>
+                        <h3 data-translate="aboutBornTitle">Born from Brat Summer 2024</h3>
+                        <p data-translate="aboutBornText1">When Charli XCX dropped "Brat" in June 2024, it wasn't just an album—it was a cultural moment. The iconic lime green cover with its bold, lowercase typography became the defining aesthetic of summer 2024.</p>
                         
-                        <p>Brat Generator was created to let everyone participate in this cultural phenomenon. Whether you're making memes, expressing yourself, or just having fun with the aesthetic, our tool makes it simple to create your own brat-style covers.</p>
+                        <p data-translate="aboutBornText2">Brat Generator was created to let everyone participate in this cultural phenomenon. Whether you're making memes, expressing yourself, or just having fun with the aesthetic, our tool makes it simple to create your own brat-style covers.</p>
                         
                         <div class="impact-stats">
                             <div class="impact-stat">
                                 <div class="impact-number">50K+</div>
-                                <div class="impact-label">Covers Created</div>
+                                <div class="impact-label" data-translate="statCovers">Covers Created</div>
                             </div>
                             <div class="impact-stat">
                                 <div class="impact-number">100+</div>
-                                <div class="impact-label">Countries</div>
+                                <div class="impact-label" data-translate="statCountries">Countries</div>
                             </div>
                             <div class="impact-stat">
                                 <div class="impact-number">1M+</div>
-                                <div class="impact-label">Social Shares</div>
+                                <div class="impact-label" data-translate="statShares">Social Shares</div>
                             </div>
                         </div>
                         
-                        <h3>Why Brat Generator?</h3>
+                        <h3 data-translate="whyTitle">Why Brat Generator?</h3>
                         <div class="feature-list">
                             <div class="feature-item">
                                 <span class="feature-icon">⚡</span>
                                 <div>
-                                    <strong>Instant Creation</strong>
-                                    <p>No design skills needed. Type your text and download instantly.</p>
+                                    <strong data-translate="feature1Title">Instant Creation</strong>
+                                    <p data-translate="feature1Desc">No design skills needed. Type your text and download instantly.</p>
                                 </div>
                             </div>
                             <div class="feature-item">
                                 <span class="feature-icon">🎨</span>
                                 <div>
-                                    <strong>Authentic Style</strong>
-                                    <p>Captures the true essence of brat aesthetics with proper fonts and colors.</p>
+                                    <strong data-translate="feature2Title">Authentic Style</strong>
+                                    <p data-translate="feature2Desc">Captures the true essence of brat aesthetics with proper fonts and colors.</p>
                                 </div>
                             </div>
                             <div class="feature-item">
                                 <span class="feature-icon">🌍</span>
                                 <div>
-                                    <strong>Global Community</strong>
-                                    <p>Join thousands creating and sharing their brat covers worldwide.</p>
+                                    <strong data-translate="feature3Title">Global Community</strong>
+                                    <p data-translate="feature3Desc">Join thousands creating and sharing their brat covers worldwide.</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <h3>Join the Movement</h3>
-                        <p>From TikTok trends to Twitter memes, brat covers have become a way to express personality and participate in internet culture. Create yours and share it with the world!</p>
+                        <h3 data-translate="joinTitle">Join the Movement</h3>
+                        <p data-translate="joinText">From TikTok trends to Twitter memes, brat covers have become a way to express personality and participate in internet culture. Create yours and share it with the world!</p>
                         
-                        <h3>How to Use Brat Generator</h3>
+                        <h3 data-translate="howToUseTitle">How to Use Brat Generator</h3>
                         <ol>
-                            <li><strong>Enter your text:</strong> Type any words you want on your cover</li>
-                            <li><strong>Choose your style:</strong> Select green or white background</li>
-                            <li><strong>Add effects:</strong> Toggle speed lines for extra flair</li>
-                            <li><strong>Download & Share:</strong> Get your cover instantly and share on social media</li>
+                            <li data-translate="howToStep1"><strong>Enter your text:</strong> Type any words you want on your cover</li>
+                            <li data-translate="howToStep2"><strong>Choose your style:</strong> Select green or white background</li>
+                            <li data-translate="howToStep3"><strong>Add effects:</strong> Toggle speed lines for extra flair</li>
+                            <li data-translate="howToStep4"><strong>Download & Share:</strong> Get your cover instantly and share on social media</li>
                         </ol>
                         
-                        <h3>Perfect for Social Media</h3>
-                        <p>Brat Generator covers are optimized for all major social platforms including Instagram stories, Twitter posts, TikTok videos, and Facebook shares. Express your personality with the iconic brat aesthetic that defined 2024.</p>
+                        <h3 data-translate="socialTitle">Perfect for Social Media</h3>
+                        <p data-translate="socialText">Brat Generator covers are optimized for all major social platforms including Instagram stories, Twitter posts, TikTok videos, and Facebook shares. Express your personality with the iconic brat aesthetic that defined 2024.</p>
                     </div>
                     </div>
                     
                     <div class="about-cta">
-                        <button class="cta-button" onclick="showCreateSection()">Start Creating</button>
+                        <button class="cta-button" onclick="showCreateSection()" data-translate="startCreating">Start Creating</button>
                     </div>
                 </div>
             </div>
@@ -529,22 +565,22 @@
                     <div class="footer-content">
                         <div class="footer-brand">
                             <h3 class="footer-logo">Brat Generator</h3>
-                            <p class="footer-desc">Create and share your brat-style covers with the world</p>
+                            <p class="footer-desc" data-translate="footerDesc">Create and share your brat-style covers with the world</p>
                         </div>
                         
                         <div class="footer-links">
                             <div class="link-group">
-                                <h4>Quick Links</h4>
-                                <a href="#" onclick="showCreateSection()">Home</a>
-                                <a href="#" onclick="showGallery()">Gallery</a>
-                                <a href="#" onclick="showAbout()">About</a>
+                                <h4 data-translate="quickLinks">Quick Links</h4>
+                                <a href="#" onclick="showCreateSection()" data-translate="home">Home</a>
+                                <a href="#" onclick="showGallery()" data-translate="gallery">Gallery</a>
+                                <a href="#" onclick="showAbout()" data-translate="about">About</a>
                             </div>
                             
                             <div class="link-group">
-                                <h4>Support</h4>
-                                <a href="mailto:hilenhwong70@gmail.com?subject=Brat Generator - Contact & Support">Contact</a>
-                                <a href="privacy-policy.html">Privacy Policy</a>
-                                <a href="terms-of-service.html">Terms of Service</a>
+                                <h4 data-translate="support">Support</h4>
+                                <a href="mailto:hilenhwong70@gmail.com?subject=Brat Generator - Contact & Support" data-translate="contact">Contact</a>
+                                <a href="privacy-policy.html" data-translate="privacyPolicy">Privacy Policy</a>
+                                <a href="terms-of-service.html" data-translate="termsOfService">Terms of Service</a>
                             </div>
                         </div>
                     </div>
@@ -558,7 +594,7 @@
                             <span>1M+ social shares</span>
                         </div>
                         <div class="footer-copyright">
-                            <p>&copy; 2024 Brat Generator. Made with 💚 for the brat community.</p>
+                            <p>&copy; 2024 Brat Generator. <span data-translate="footerCopyright">Made with 💚 for the brat community.</span></p>
                         </div>
                     </div>
                 </div>
@@ -568,6 +604,7 @@
     </div>
 
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

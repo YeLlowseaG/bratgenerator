@@ -76,6 +76,43 @@ class LiveBratGenerator {
         return this.settings.mode === 'green' ? '#000000' : '#000000';
     }
 
+    getPlaceholderText() {
+        if (window.languageManager) {
+            const placeholders = {
+                en: 'Start typing to see your brat cover...',
+                nl: 'Begin met typen om je brat hoes te zien...',
+                fr: 'Commencez à taper pour voir votre pochette brat...',
+                de: 'Beginne zu tippen um dein Brat Cover zu sehen...',
+                pt: 'Comece a digitar para ver sua capa brat...',
+                es: 'Comienza a escribir para ver tu portada brat...',
+                it: 'Inizia a scrivere per vedere la tua copertina brat...'
+            };
+            return placeholders[window.languageManager.currentLanguage] || placeholders.en;
+        }
+        return 'Start typing to see your brat cover...';
+    }
+
+    getDefaultText() {
+        if (window.languageManager) {
+            const defaultTexts = {
+                en: 'your text here',
+                nl: 'jouw tekst hier',
+                fr: 'votre texte ici',
+                de: 'dein text hier',
+                pt: 'seu texto aqui',
+                es: 'tu texto aquí',
+                it: 'il tuo testo qui'
+            };
+            return defaultTexts[window.languageManager.currentLanguage] || defaultTexts.en;
+        }
+        return 'your text here';
+    }
+
+    updatePlaceholderText() {
+        // Force update preview to show new placeholder text and default text
+        this.updatePreview();
+    }
+
     updatePreview() {
         const backgroundColor = this.getBackgroundColor();
         const textColor = this.getTextColor();
@@ -98,7 +135,7 @@ class LiveBratGenerator {
         this.ctx.textBaseline = 'middle';
         
         // Get text to display
-        const text = this.settings.text.trim() || 'your text here';
+        const text = this.settings.text.trim() || this.getDefaultText();
         const displayText = text.toLowerCase();
         
         // Smart text fitting with auto font size and wrapping
@@ -109,7 +146,8 @@ class LiveBratGenerator {
             this.ctx.globalAlpha = 0.6;
             this.ctx.fillStyle = this.settings.mode === 'green' ? '#6a9600' : '#cccccc';
             this.ctx.font = '20px Arial, sans-serif';
-            this.ctx.fillText('Start typing to see your brat cover...', this.canvas.width / 2, this.canvas.height - 30);
+            const placeholderText = this.getPlaceholderText();
+            this.ctx.fillText(placeholderText, this.canvas.width / 2, this.canvas.height - 30);
             this.ctx.globalAlpha = 1;
         }
     }
@@ -138,7 +176,7 @@ class LiveBratGenerator {
         const startY = Math.random() * this.canvas.height;
         
         // Random line width for variation
-        this.ctx.lineWidth = 2 + Math.random() * 3;
+        this.ctx.lineWidth = 1 + Math.random() * 1.5;
         
         // Determine if it's a horizontal or more curved scribble
         const isHorizontalish = Math.random() > 0.3; // 70% chance for horizontal-ish lines
@@ -400,7 +438,7 @@ class LiveBratGenerator {
         const startY = Math.random() * this.canvas.height;
         
         // Random line width for variation
-        ctx.lineWidth = 2 + Math.random() * 3;
+        ctx.lineWidth = 1 + Math.random() * 1.5;
         
         // Determine if it's a horizontal or more curved scribble
         const isHorizontalish = Math.random() > 0.3; // 70% chance for horizontal-ish lines
@@ -690,7 +728,7 @@ function updateBreadcrumb(section) {
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    new LiveBratGenerator();
+    window.bratGeneratorInstance = new LiveBratGenerator();
 
     // Mobile navigation toggle
     const navToggle = document.getElementById('nav-toggle');
