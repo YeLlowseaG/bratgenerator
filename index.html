@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brat Generator - Create Your Own Brat Album Cover</title>
     <meta name="description" content="Generate custom album covers inspired by Charli XCX's Brat. Free online tool with green and white backgrounds.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bratgenerator.store/">
+    <meta property="og:title" content="Brat Generator - Create Your Own Brat Album Cover">
+    <meta property="og:description" content="Generate custom album covers inspired by Charli XCX's Brat. Free online tool with green and white backgrounds.">
+    <meta property="og:image" content="https://bratgenerator.store/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bratgenerator.store/">
+    <meta property="twitter:title" content="Brat Generator - Create Your Own Brat Album Cover">
+    <meta property="twitter:description" content="Generate custom album covers inspired by Charli XCX's Brat. Free online tool with green and white backgrounds.">
+    <meta property="twitter:image" content="https://bratgenerator.store/og-image.png">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,7 +107,10 @@
 
                     <div class="action-group">
                         <button id="download-btn" class="download-btn">📥 Download PNG</button>
-                        <button id="share-btn" class="share-btn">📱 Share</button>
+                        <div class="share-group">
+                            <button id="twitter-share-btn" class="share-btn twitter-btn">🐦 Share on Twitter</button>
+                            <button id="instagram-share-btn" class="share-btn instagram-btn">📸 IG</button>
+                        </div>
                     </div>
 
                     <!-- Features moved from hero -->
@@ -115,37 +132,8 @@
             </div>
         </main>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <p class="footer-text">
-                    Inspired by Charli XCX's Brat album • Made with ❤️ for the brat summer
-                </p>
-                <div class="footer-links">
-                    <a href="#" class="footer-link">About</a>
-                    <a href="#" class="footer-link">Contact</a>
-                    <a href="#" class="footer-link">Privacy</a>
-                </div>
-            </div>
-        </footer>
     </div>
 
-    <!-- Share Modal -->
-    <div id="share-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Share Your Creation</h3>
-                <button class="modal-close">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p>Right-click the image and select "Save Image As..." or take a screenshot to share!</p>
-                <div class="share-buttons">
-                    <button class="share-btn twitter">Share on Twitter</button>
-                    <button class="share-btn instagram">Share on Instagram</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
