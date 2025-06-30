@@ -664,6 +664,7 @@ function showCreateSection() {
 
 function showGallery() {
     hideAllSections();
+    updateGalleryContent(); // Update gallery based on current language
     document.getElementById('gallery').style.display = 'block';
     document.querySelector('.gallery-footer').style.display = 'block';
     
@@ -726,6 +727,256 @@ function updateBreadcrumb(section) {
     }
 }
 
+function updateGalleryContent() {
+    const currentLang = window.languageManager ? window.languageManager.currentLanguage : 'en';
+    
+    const galleryData = {
+        en: [
+            { text: "main character", likes: "2.1k", shares: "445", color: "green" },
+            { text: "hot girl summer", likes: "1.8k", shares: "312", color: "white" },
+            { text: "no skips", likes: "1.5k", shares: "298", color: "green" },
+            { text: "iconic behavior", likes: "1.2k", shares: "234", color: "white" },
+            { text: "period queen", likes: "934", shares: "187", color: "green" },
+            { text: "energy vampire", likes: "892", shares: "156", color: "white" },
+            { text: "delulu is the solulu", likes: "756", shares: "123", color: "green" },
+            { text: "serving looks", likes: "678", shares: "89", color: "white" },
+            { text: "digital detox", likes: "543", shares: "67", color: "green" }
+        ],
+        nl: [
+            { text: "gezelligheid", likes: "1.9k", shares: "402", color: "green" },
+            { text: "oranje fever", likes: "1.6k", shares: "298", color: "white" },
+            { text: "dutch courage", likes: "1.3k", shares: "267", color: "green" },
+            { text: "koningsdag vibes", likes: "1.1k", shares: "223", color: "white" },
+            { text: "bike life", likes: "887", shares: "178", color: "green" },
+            { text: "stroopwafel mood", likes: "765", shares: "145", color: "white" },
+            { text: "amsterdam nights", likes: "698", shares: "134", color: "green" },
+            { text: "tulip power", likes: "634", shares: "112", color: "white" },
+            { text: "cheese dreams", likes: "578", shares: "89", color: "green" }
+        ],
+        fr: [
+            { text: "c'est la vie", likes: "2.0k", shares: "434", color: "green" },
+            { text: "très chic", likes: "1.7k", shares: "389", color: "white" },
+            { text: "magnifique", likes: "1.4k", shares: "276", color: "green" },
+            { text: "je ne sais quoi", likes: "1.2k", shares: "245", color: "white" },
+            { text: "bon vivant", likes: "956", shares: "198", color: "green" },
+            { text: "french girl", likes: "823", shares: "167", color: "white" },
+            { text: "café culture", likes: "745", shares: "143", color: "green" },
+            { text: "savoir vivre", likes: "689", shares: "128", color: "white" },
+            { text: "joie de vivre", likes: "612", shares: "95", color: "green" }
+        ],
+        de: [
+            { text: "wunderbar", likes: "1.8k", shares: "367", color: "green" },
+            { text: "techno vibes", likes: "1.6k", shares: "334", color: "white" },
+            { text: "berlin nights", likes: "1.4k", shares: "289", color: "green" },
+            { text: "oktoberfest", likes: "1.1k", shares: "234", color: "white" },
+            { text: "autobahn speed", likes: "923", shares: "189", color: "green" },
+            { text: "gemütlichkeit", likes: "812", shares: "156", color: "white" },
+            { text: "kraftwerk energy", likes: "734", shares: "134", color: "green" },
+            { text: "bauhaus style", likes: "667", shares: "112", color: "white" },
+            { text: "deutsche qualität", likes: "598", shares: "87", color: "green" }
+        ],
+        pt: [
+            { text: "saudade feelings", likes: "1.7k", shares: "345", color: "green" },
+            { text: "fado mood", likes: "1.4k", shares: "298", color: "white" },
+            { text: "lisboa nights", likes: "1.2k", shares: "267", color: "green" },
+            { text: "bacalhau dreams", likes: "987", shares: "223", color: "white" },
+            { text: "porto wine", likes: "856", shares: "178", color: "green" },
+            { text: "azulejo art", likes: "734", shares: "145", color: "white" },
+            { text: "serra da estrela", likes: "678", shares: "123", color: "green" },
+            { text: "pastéis de nata", likes: "612", shares: "98", color: "white" },
+            { text: "tempo português", likes: "534", shares: "76", color: "green" }
+        ],
+        es: [
+            { text: "fiesta forever", likes: "2.2k", shares: "456", color: "green" },
+            { text: "siesta time", likes: "1.9k", shares: "398", color: "white" },
+            { text: "flamenco soul", likes: "1.6k", shares: "334", color: "green" },
+            { text: "tapas life", likes: "1.3k", shares: "289", color: "white" },
+            { text: "sangría nights", likes: "1.0k", shares: "234", color: "green" },
+            { text: "ole energy", likes: "897", shares: "189", color: "white" },
+            { text: "madrid movida", likes: "778", shares: "156", color: "green" },
+            { text: "barcelona vibes", likes: "689", shares: "123", color: "white" },
+            { text: "costa del soul", likes: "612", shares: "98", color: "green" }
+        ],
+        it: [
+            { text: "dolce vita", likes: "2.3k", shares: "487", color: "green" },
+            { text: "amore eterno", likes: "1.8k", shares: "378", color: "white" },
+            { text: "bella figura", likes: "1.5k", shares: "312", color: "green" },
+            { text: "gelato dreams", likes: "1.2k", shares: "267", color: "white" },
+            { text: "pasta perfetta", likes: "1.0k", shares: "223", color: "green" },
+            { text: "roman holiday", likes: "856", shares: "178", color: "white" },
+            { text: "milano fashion", likes: "734", shares: "145", color: "green" },
+            { text: "sicilian sun", likes: "667", shares: "123", color: "white" },
+            { text: "venetian magic", likes: "589", shares: "89", color: "green" }
+        ]
+    };
+
+    const data = galleryData[currentLang] || galleryData.en;
+    const galleryGrid = document.querySelector('.gallery-grid');
+    
+    if (galleryGrid) {
+        galleryGrid.innerHTML = data.map((item, index) => `
+            <div class="gallery-item">
+                <div class="gallery-cover ${item.color}-cover">
+                    <div class="cover-text">${item.text}</div>
+                    <button class="gallery-download-btn" onclick="downloadGalleryItem('${item.text}', '${item.color}')" title="Download this cover">
+                        📥
+                    </button>
+                </div>
+                <div class="gallery-meta">
+                    <span class="gallery-likes">❤️ ${item.likes}</span>
+                    <span class="gallery-shares">🔄 ${item.shares}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+}
+
+// Function to download gallery items
+function downloadGalleryItem(text, mode) {
+    // Create a temporary canvas for generation
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = 800;
+    tempCanvas.height = 800;
+    const tempCtx = tempCanvas.getContext('2d');
+    
+    // Generate the cover
+    generateCoverOnCanvas(tempCtx, text, mode, false); // false = no speed lines for gallery items
+    
+    // Download the image
+    const link = document.createElement('a');
+    link.download = `brat-${text.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}.png`;
+    link.href = tempCanvas.toDataURL('image/png');
+    link.click();
+}
+
+// Helper function to generate cover on any canvas
+function generateCoverOnCanvas(ctx, text, mode, speedLines) {
+    const canvas = ctx.canvas;
+    
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Set background
+    const bgColor = mode === 'green' ? '#8ace00' : '#ffffff';
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Draw speed lines if enabled
+    if (speedLines) {
+        ctx.strokeStyle = mode === 'green' ? 'rgba(0, 0, 0, 0.1)' : 'rgba(138, 206, 0, 0.1)';
+        ctx.lineWidth = 1;
+        
+        const numLines = 15;
+        for (let i = 0; i < numLines; i++) {
+            const angle = (i / numLines) * Math.PI * 2;
+            const startRadius = canvas.width * 0.2;
+            const endRadius = canvas.width * 0.6;
+            
+            const startX = canvas.width / 2 + Math.cos(angle) * startRadius;
+            const startY = canvas.height / 2 + Math.sin(angle) * startRadius;
+            const endX = canvas.width / 2 + Math.cos(angle) * endRadius;
+            const endY = canvas.height / 2 + Math.sin(angle) * endRadius;
+            
+            ctx.beginPath();
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(endX, endY);
+            ctx.stroke();
+        }
+    }
+    
+    // Draw text
+    if (text.trim()) {
+        ctx.fillStyle = '#000000';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        
+        // Auto-fit text
+        const maxWidth = canvas.width * 0.8;
+        const maxHeight = canvas.height * 0.7;
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        
+        let fontSize = Math.min(canvas.width, canvas.height) * 0.15;
+        let bestFit = null;
+        
+        while (fontSize >= 16) {
+            ctx.font = `${fontSize}px Arial, sans-serif`;
+            
+            const lines = wrapTextToLines(ctx, text, maxWidth);
+            const lineHeight = fontSize * 1.2;
+            const totalHeight = lines.length * lineHeight;
+            
+            if (totalHeight <= maxHeight) {
+                bestFit = {
+                    fontSize: fontSize,
+                    lines: lines,
+                    lineHeight: lineHeight,
+                    totalHeight: totalHeight
+                };
+                break;
+            }
+            
+            fontSize -= 3;
+        }
+        
+        if (bestFit) {
+            ctx.font = `${bestFit.fontSize}px Arial, sans-serif`;
+            drawTextLines(ctx, bestFit.lines, centerX, centerY, bestFit.lineHeight);
+        }
+    }
+}
+
+// Helper functions for text wrapping and drawing
+function wrapTextToLines(ctx, text, maxWidth) {
+    const lines = [];
+    let currentLine = '';
+    
+    const hasSpaces = text.includes(' ');
+    
+    if (hasSpaces) {
+        const words = text.split(' ');
+        for (let word of words) {
+            const testLine = currentLine ? currentLine + ' ' + word : word;
+            const testWidth = ctx.measureText(testLine).width;
+            
+            if (testWidth > maxWidth && currentLine) {
+                lines.push(currentLine);
+                currentLine = word;
+            } else {
+                currentLine = testLine;
+            }
+        }
+    } else {
+        for (let i = 0; i < text.length; i++) {
+            const char = text[i];
+            const testLine = currentLine + char;
+            const testWidth = ctx.measureText(testLine).width;
+            
+            if (testWidth > maxWidth && currentLine) {
+                lines.push(currentLine);
+                currentLine = char;
+            } else {
+                currentLine = testLine;
+            }
+        }
+    }
+    
+    if (currentLine) {
+        lines.push(currentLine);
+    }
+    
+    return lines.length > 0 ? lines : [text];
+}
+
+function drawTextLines(ctx, lines, centerX, centerY, lineHeight) {
+    const startY = centerY - ((lines.length - 1) * lineHeight) / 2;
+    
+    for (let i = 0; i < lines.length; i++) {
+        const y = startY + (i * lineHeight);
+        ctx.fillText(lines[i], centerX, y);
+    }
+}
+
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     window.bratGeneratorInstance = new LiveBratGenerator();
@@ -765,6 +1016,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize with home page
     updateNavActive('home');
+    
+    // Initialize gallery content
+    updateGalleryContent();
+    
+    // Make gallery update function globally available
+    window.updateGalleryContent = updateGalleryContent;
 
     // Add smooth animations
     const observer = new IntersectionObserver((entries) => {

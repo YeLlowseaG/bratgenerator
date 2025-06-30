@@ -779,6 +779,11 @@ class LanguageManager {
 
         this.updateLanguageSelector();
         this.translatePage();
+        
+        // Update gallery content if gallery is currently visible
+        if (window.updateGalleryContent && document.getElementById('gallery').style.display !== 'none') {
+            updateGalleryContent();
+        }
     }
 
     updateLanguageSelector() {
