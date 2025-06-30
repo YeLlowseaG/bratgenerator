@@ -1,21 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+    
+    <!-- Main Pages -->
     <url>
         <loc>https://www.bratgenerator.store/</loc>
-        <lastmod>2024-06-30</lastmod>
+        <lastmod>2025-06-30</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+        <!-- Alternate language versions -->
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.bratgenerator.store/" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://www.bratgenerator.store/?lang=nl" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.bratgenerator.store/?lang=fr" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.bratgenerator.store/?lang=de" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://www.bratgenerator.store/?lang=pt" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.bratgenerator.store/?lang=es" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.bratgenerator.store/?lang=it" />
     </url>
+    
+    <!-- Gallery Section -->
     <url>
         <loc>https://www.bratgenerator.store/#gallery</loc>
-        <lastmod>2024-06-30</lastmod>
+        <lastmod>2025-06-30</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.bratgenerator.store/#gallery" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://www.bratgenerator.store/?lang=nl#gallery" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.bratgenerator.store/?lang=fr#gallery" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.bratgenerator.store/?lang=de#gallery" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://www.bratgenerator.store/?lang=pt#gallery" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.bratgenerator.store/?lang=es#gallery" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.bratgenerator.store/?lang=it#gallery" />
     </url>
+    
+    <!-- About Section with Videos -->
     <url>
         <loc>https://www.bratgenerator.store/#about</loc>
-        <lastmod>2024-06-30</lastmod>
+        <lastmod>2025-06-30</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.bratgenerator.store/#about" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://www.bratgenerator.store/?lang=nl#about" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.bratgenerator.store/?lang=fr#about" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.bratgenerator.store/?lang=de#about" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://www.bratgenerator.store/?lang=pt#about" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.bratgenerator.store/?lang=es#about" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.bratgenerator.store/?lang=it#about" />
+        
+        <!-- Video Content -->
+        <video:video>
+            <video:thumbnail_loc>https://img.youtube.com/vi/7skYwPqRMA4/maxresdefault.jpg</video:thumbnail_loc>
+            <video:title>Brat Summer Explained - Understanding the Cultural Phenomenon</video:title>
+            <video:description>Understanding the cultural phenomenon that defined summer 2024, exploring how Charli XCX's Brat album became a defining moment of internet culture.</video:description>
+            <video:content_loc>https://www.youtube.com/watch?v=7skYwPqRMA4</video:content_loc>
+            <video:player_loc>https://www.youtube-nocookie.com/embed/7skYwPqRMA4</video:player_loc>
+            <video:duration>180</video:duration>
+            <video:publication_date>2024-06-30</video:publication_date>
+            <video:family_friendly>yes</video:family_friendly>
+            <video:tag>brat summer</video:tag>
+            <video:tag>charli xcx</video:tag>
+            <video:tag>cultural phenomenon</video:tag>
+            <video:tag>music culture</video:tag>
+        </video:video>
+        
+        <video:video>
+            <video:thumbnail_loc>https://img.youtube.com/vi/WJW-VvmRKsE/maxresdefault.jpg</video:thumbnail_loc>
+            <video:title>Charli XCX - 360 (Official Video)</video:title>
+            <video:description>Experience the iconic brat aesthetic in motion through Charli XCX's official music video for 360, showcasing the visual style that defined the brat era.</video:description>
+            <video:content_loc>https://www.youtube.com/watch?v=WJW-VvmRKsE</video:content_loc>
+            <video:player_loc>https://www.youtube-nocookie.com/embed/WJW-VvmRKsE</video:player_loc>
+            <video:duration>200</video:duration>
+            <video:publication_date>2024-06-07</video:publication_date>
+            <video:family_friendly>yes</video:family_friendly>
+            <video:tag>charli xcx</video:tag>
+            <video:tag>360</video:tag>
+            <video:tag>brat album</video:tag>
+            <video:tag>music video</video:tag>
+            <video:tag>pop music</video:tag>
+        </video:video>
+        
+        <video:video>
+            <video:thumbnail_loc>https://img.youtube.com/vi/hhu0sid6tmk/maxresdefault.jpg</video:thumbnail_loc>
+            <video:title>Graphic Designer's Analysis of Brat Album Cover</video:title>
+            <video:description>Professional analysis of the minimalist design approach behind Charli XCX's Brat album cover, exploring typography choices and aesthetic decisions.</video:description>
+            <video:content_loc>https://www.youtube.com/watch?v=hhu0sid6tmk</video:content_loc>
+            <video:player_loc>https://www.youtube-nocookie.com/embed/hhu0sid6tmk</video:player_loc>
+            <video:duration>240</video:duration>
+            <video:publication_date>2024-06-15</video:publication_date>
+            <video:family_friendly>yes</video:family_friendly>
+            <video:tag>graphic design</video:tag>
+            <video:tag>album cover design</video:tag>
+            <video:tag>typography</video:tag>
+            <video:tag>design analysis</video:tag>
+            <video:tag>brat aesthetic</video:tag>
+        </video:video>
+        
+        <video:video>
+            <video:thumbnail_loc>https://img.youtube.com/vi/hAhE3RiAVTA/maxresdefault.jpg</video:thumbnail_loc>
+            <video:title>In-Depth Brat Graphic Design Analysis</video:title>
+            <video:description>Deep dive into the typography and aesthetic choices that made the Brat album cover iconic, examining color theory and minimalist design principles.</video:description>
+            <video:content_loc>https://www.youtube.com/watch?v=hAhE3RiAVTA</video:content_loc>
+            <video:player_loc>https://www.youtube-nocookie.com/embed/hAhE3RiAVTA</video:player_loc>
+            <video:duration>300</video:duration>
+            <video:publication_date>2024-06-20</video:publication_date>
+            <video:family_friendly>yes</video:family_friendly>
+            <video:tag>design tutorial</video:tag>
+            <video:tag>graphic design</video:tag>
+            <video:tag>color theory</video:tag>
+            <video:tag>minimalist design</video:tag>
+            <video:tag>brat analysis</video:tag>
+        </video:video>
     </url>
+    
+    <!-- Multi-language URLs -->
+    <url>
+        <loc>https://www.bratgenerator.store/?lang=nl</loc>
+        <lastmod>2025-06-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.bratgenerator.store/?lang=fr</loc>
+        <lastmod>2025-06-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.bratgenerator.store/?lang=de</loc>
+        <lastmod>2025-06-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.bratgenerator.store/?lang=pt</loc>
+        <lastmod>2025-06-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.bratgenerator.store/?lang=es</loc>
+        <lastmod>2025-06-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.bratgenerator.store/?lang=it</loc>
+        <lastmod>2025-06-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- FAQ Page -->
+    <url>
+        <loc>https://www.bratgenerator.store/faq.html</loc>
+        <lastmod>2025-06-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.bratgenerator.store/faq.html" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://www.bratgenerator.store/faq.html?lang=nl" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.bratgenerator.store/faq.html?lang=fr" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.bratgenerator.store/faq.html?lang=de" />
+        <xhtml:link rel="alternate" hreflang="pt" href="https://www.bratgenerator.store/faq.html?lang=pt" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.bratgenerator.store/faq.html?lang=es" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.bratgenerator.store/faq.html?lang=it" />
+    </url>
+    
+    <!-- Legal Pages -->
+    <url>
+        <loc>https://www.bratgenerator.store/privacy-policy.html</loc>
+        <lastmod>2025-06-30</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://www.bratgenerator.store/terms-of-service.html</loc>
+        <lastmod>2025-06-30</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
 </urlset>

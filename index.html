@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brat Generator - Create & Download Brat Style Album Covers | Free Multi-Language Tool</title>
-    <meta name="description" content="Create and download custom brat-style album covers in 7 languages. Browse our curated gallery, get inspired, and instantly download your covers. Free forever with multi-language support!">
-    <meta name="keywords" content="brat generator, charli xcx, album cover maker, brat summer, lime green aesthetic, free design tool, custom covers, music artwork, online generator, gallery download, multi-language, dutch, french, german, spanish, italian, portuguese">
+    <meta name="description" content="Advanced brat-style album cover creator with PWA support, keyboard shortcuts, and instant loading. Create covers in 7 languages, install as desktop app, use keyboard navigation (press ? for help). Free forever with offline support!">
+    <meta name="keywords" content="brat generator, charli xcx, album cover maker, PWA app, keyboard shortcuts, fast loading, offline support, installable web app, brat summer, lime green aesthetic, free design tool, custom covers, music artwork, online generator, gallery download, multi-language, dutch, french, german, spanish, italian, portuguese, progressive web app">
     <meta name="author" content="Brat Generator">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.bratgenerator.store/">
@@ -44,20 +44,48 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.bratgenerator.store/">
-    <meta property="og:title" content="Brat Generator - Create & Download Brat Covers in 7 Languages">
-    <meta property="og:description" content="Create custom brat-style album covers in 7 languages. Browse our curated gallery with cultural examples and download instantly. Free forever!">
+    <meta property="og:title" content="Brat Generator - Advanced PWA Album Cover Creator with Keyboard Shortcuts">
+    <meta property="og:description" content="Create brat-style covers in 7 languages with our PWA app! Features: keyboard shortcuts, offline support, fast lazy loading, and instant desktop installation. Try pressing ? for shortcuts!"
     <meta property="og:image" content="https://www.bratgenerator.store/og-image.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.bratgenerator.store/">
-    <meta property="twitter:title" content="Brat Generator - Multi-Language Brat Cover Creator">
-    <meta property="twitter:description" content="Create brat-style covers in 7 languages with our curated gallery. Download culturally relevant examples instantly. #BratGenerator #MultiLanguage">
+    <meta property="twitter:title" content="Brat Generator - PWA App with Keyboard Shortcuts">
+    <meta property="twitter:description" content="Advanced brat cover creator! 🚀 PWA app, keyboard shortcuts (press ?), offline support, fast loading. Create in 7 languages! #BratGenerator #PWA #KeyboardShortcuts"
     <meta property="twitter:image" content="https://www.bratgenerator.store/og-image.png">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"></noscript>
+    <link rel="preload" href="style.css" as="style">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//www.youtube-nocookie.com">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(self)">
+    
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self'; 
+        script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; 
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+        font-src 'self' https://fonts.gstatic.com; 
+        img-src 'self' data: https:; 
+        connect-src 'self' https://www.google-analytics.com; 
+        frame-src https://www.youtube-nocookie.com; 
+        object-src 'none'; 
+        base-uri 'self';
+        form-action 'self'
+    ">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -66,7 +94,7 @@
         "@type": "WebApplication",
         "name": "Brat Generator",
         "url": "https://www.bratgenerator.store/",
-        "description": "Create and download custom brat-style album covers in 7 languages. Features curated gallery with instant downloads, multi-language support, and culturally relevant examples.",
+        "description": "Advanced PWA brat-style album cover creator with keyboard shortcuts, offline support, and fast lazy loading. Create covers in 7 languages, install as desktop app, use keyboard navigation. Features curated gallery with instant downloads and culturally relevant examples.",
         "applicationCategory": "DesignApplication",
         "operatingSystem": "Web Browser",
         "offers": {
@@ -86,9 +114,15 @@
         "inLanguage": ["en-US", "nl-NL", "fr-FR", "de-DE", "pt-PT", "es-ES", "it-IT"],
         "isAccessibleForFree": true,
         "featureList": [
+            "Progressive Web App (PWA) - Install as desktop app",
+            "Keyboard shortcuts and navigation (press ? for help)",
+            "Offline support and fast loading",
+            "Lazy loading for optimal performance", 
             "Multi-language support (7 languages)",
             "Curated gallery with instant downloads",
             "Cultural examples for each region",
+            "Advanced notification system",
+            "Enhanced error handling",
             "Free forever",
             "No design skills required",
             "Instant PNG download",
@@ -139,6 +173,93 @@
                 "position": 3,
                 "name": "About",
                 "item": "https://www.bratgenerator.store/#about"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- HowTo Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Create Brat-Style Album Covers",
+        "description": "Step-by-step guide to creating custom brat-style album covers using Brat Generator PWA. Learn keyboard shortcuts, installation, and advanced features for efficient cover creation.",
+        "image": "https://www.bratgenerator.store/og-image.png",
+        "totalTime": "PT2M",
+        "estimatedCost": {
+            "@type": "MonetaryAmount",
+            "currency": "USD",
+            "value": "0"
+        },
+        "supply": [
+            {
+                "@type": "HowToSupply",
+                "name": "Text or words for your cover"
+            },
+            {
+                "@type": "HowToSupply", 
+                "name": "Internet connection"
+            },
+            {
+                "@type": "HowToSupply",
+                "name": "Web browser"
+            }
+        ],
+        "tool": [
+            {
+                "@type": "HowToTool",
+                "name": "Brat Generator"
+            }
+        ],
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Type your text",
+                "text": "Enter any words you want on your brat-style album cover in the input field. The tool works with any language and automatically adjusts text sizing.",
+                "image": "https://www.bratgenerator.store/og-image.png",
+                "url": "https://www.bratgenerator.store/#create"
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Choose your style",
+                "text": "Select between Green Mode (classic lime green background like the original Brat album) or White Mode (clean white background with green text).",
+                "image": "https://www.bratgenerator.store/og-image.png",
+                "url": "https://www.bratgenerator.store/#create"
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Add optional effects",
+                "text": "Toggle the Speed Lines effect to add dynamic radiating lines around your text for extra visual flair and energy.",
+                "image": "https://www.bratgenerator.store/og-image.png",
+                "url": "https://www.bratgenerator.store/#create"
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Download and share",
+                "text": "Click the Download PNG button to save your custom brat-style cover as a high-quality 800x800 pixel image. Share on social media or use for your projects.",
+                "image": "https://www.bratgenerator.store/og-image.png",
+                "url": "https://www.bratgenerator.store/#create"
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Use keyboard shortcuts (Pro tip)",
+                "text": "Press '?' to see all keyboard shortcuts. Use 'D' for download, 'M' to toggle mode, 'G' for gallery, and more. Works even faster than clicking!",
+                "image": "https://www.bratgenerator.store/og-image.png",
+                "url": "https://www.bratgenerator.store/#create"
+            },
+            {
+                "@type": "HowToStep",
+                "position": 6, 
+                "name": "Install as desktop app (Optional)",
+                "text": "Click the install prompt or add to home screen for a native app experience. Works offline and loads instantly!",
+                "image": "https://www.bratgenerator.store/og-image.png",
+                "url": "https://www.bratgenerator.store/"
             }
         ]
     }
@@ -267,12 +388,12 @@
                         <div id="text-help" class="sr-only">Type any text to create your custom brat-style album cover</div>
                     </div>
 
-                    <div class="mode-group">
-                        <button class="mode-btn active" data-mode="green">
+                    <div class="mode-group" role="radiogroup" aria-label="Choose background color">
+                        <button class="mode-btn active" data-mode="green" role="radio" aria-checked="true" aria-label="Green background mode">
                             <span class="mode-color green"></span>
                             <span data-translate="greenMode">Green Mode</span>
                         </button>
-                        <button class="mode-btn" data-mode="white">
+                        <button class="mode-btn" data-mode="white" role="radio" aria-checked="false" aria-label="White background mode">
                             <span class="mode-color white"></span>
                             <span data-translate="whiteMode">White Mode</span>
                         </button>
@@ -287,10 +408,10 @@
                     </div>
 
                     <div class="action-group">
-                        <button id="download-btn" class="download-btn" data-translate="download">📥 Download PNG</button>
+                        <button id="download-btn" class="download-btn" data-translate="download" aria-label="Download your brat cover as PNG image">📥 Download PNG</button>
                         <div class="share-group">
-                            <button id="twitter-share-btn" class="share-btn twitter-btn" data-translate="shareTwitter">🐦 Share on Twitter</button>
-                            <button id="instagram-share-btn" class="share-btn instagram-btn" data-translate="shareInstagram">📸 IG</button>
+                            <button id="twitter-share-btn" class="share-btn twitter-btn" data-translate="shareTwitter" aria-label="Share your brat cover on Twitter">🐦 Share on Twitter</button>
+                            <button id="instagram-share-btn" class="share-btn instagram-btn" data-translate="shareInstagram" aria-label="Share your brat cover on Instagram">📸 IG</button>
                         </div>
                     </div>
 
@@ -306,7 +427,7 @@
                 <div class="preview-panel" aria-label="Live preview of your brat cover">
                     <h3 class="preview-title" data-translate="previewTitle">Live Preview</h3>
                     <div class="canvas-container">
-                        <canvas id="preview-canvas" width="300" height="300" aria-label="Preview of your custom brat album cover"></canvas>
+                        <canvas id="preview-canvas" width="300" height="300" aria-label="Preview of your custom brat album cover" role="img"></canvas>
                     </div>
                     <p class="preview-note" data-translate="previewNote">Changes appear instantly as you type</p>
                 </div>
@@ -466,7 +587,8 @@
                                 <iframe src="https://www.youtube-nocookie.com/embed/7skYwPqRMA4" 
                                         title="Brat Summer Explained" 
                                         loading="lazy" 
-                                        allowfullscreen></iframe>
+                                        allowfullscreen
+                                        aria-label="Video: Brat Summer cultural phenomenon explained"></iframe>
                                 <h4 data-translate="video1Title">'Brat Summer' Explained</h4>
                                 <p data-translate="video1Desc">Understanding the cultural phenomenon that defined summer 2024</p>
                             </div>
@@ -475,7 +597,8 @@
                                 <iframe src="https://www.youtube-nocookie.com/embed/WJW-VvmRKsE" 
                                         title="Charli XCX - 360 Official Video" 
                                         loading="lazy" 
-                                        allowfullscreen></iframe>
+                                        allowfullscreen
+                                        aria-label="Music Video: Charli XCX - 360 official video"></iframe>
                                 <h4 data-translate="video2Title">Charli XCX - 360 (Official Video)</h4>
                                 <p data-translate="video2Desc">Experience the iconic brat aesthetic in motion</p>
                             </div>
@@ -484,7 +607,8 @@
                                 <iframe src="https://www.youtube-nocookie.com/embed/hhu0sid6tmk" 
                                         title="Graphic Designer on Brat Album Cover" 
                                         loading="lazy" 
-                                        allowfullscreen></iframe>
+                                        allowfullscreen
+                                        aria-label="Design Analysis: Graphic designer analyzes brat album cover"></iframe>
                                 <h4 data-translate="video3Title">Designer's Take on Brat Cover</h4>
                                 <p data-translate="video3Desc">Professional analysis of the minimalist design approach</p>
                             </div>
@@ -493,7 +617,8 @@
                                 <iframe src="https://www.youtube-nocookie.com/embed/hAhE3RiAVTA" 
                                         title="Brat Graphic Design Analysis" 
                                         loading="lazy" 
-                                        allowfullscreen></iframe>
+                                        allowfullscreen
+                                        aria-label="Tutorial: In-depth brat graphic design analysis"></iframe>
                                 <h4 data-translate="video4Title">Brat Design Analysis</h4>
                                 <p data-translate="video4Desc">Deep dive into the typography and aesthetic choices</p>
                             </div>
@@ -599,7 +724,93 @@
     </div>
 
 
-    <script src="translations.js"></script>
-    <script src="script.js"></script>
+    <!-- PWA Install Banner -->
+    <div id="pwa-install-banner" class="pwa-banner" style="display: none;">
+        <div class="pwa-banner-content">
+            <div class="pwa-banner-icon">📱</div>
+            <div class="pwa-banner-text">
+                <h4 data-translate="pwaInstallTitle">Install Brat Generator</h4>
+                <p data-translate="pwaInstallDesc">Get quick access from your home screen</p>
+            </div>
+            <div class="pwa-banner-actions">
+                <button id="pwa-install-btn" class="pwa-install-btn" data-translate="pwaInstall">Install</button>
+                <button id="pwa-dismiss-btn" class="pwa-dismiss-btn" data-translate="pwaDismiss">Not now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load JavaScript with optimization -->
+    <script src="translations.js" defer></script>
+    <script src="script.js" defer></script>
+    
+    <!-- PWA and Service Worker -->
+    <script>
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
+        // PWA Install Prompt
+        let deferredPrompt;
+        const installBanner = document.getElementById('pwa-install-banner');
+        const installBtn = document.getElementById('pwa-install-btn');
+        const dismissBtn = document.getElementById('pwa-dismiss-btn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the mini-infobar from appearing on mobile
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Show custom install banner
+            installBanner.style.display = 'block';
+        });
+
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                // Show the install prompt
+                deferredPrompt.prompt();
+                
+                // Wait for the user to respond to the prompt
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`User response to the install prompt: ${outcome}`);
+                
+                // Clear the saved prompt
+                deferredPrompt = null;
+                installBanner.style.display = 'none';
+            }
+        });
+
+        dismissBtn.addEventListener('click', () => {
+            installBanner.style.display = 'none';
+            // Remember user dismissed (could save to localStorage)
+            localStorage.setItem('pwa-dismissed', 'true');
+        });
+
+        // Check if already dismissed
+        if (localStorage.getItem('pwa-dismissed') === 'true') {
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+            });
+        }
+
+        // Track PWA install
+        window.addEventListener('appinstalled', () => {
+            console.log('PWA was installed');
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'app_install', {
+                    'event_category': 'PWA',
+                    'event_label': 'App Installed'
+                });
+            }
+        });
+    </script>
 </body>
 </html>

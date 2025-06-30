@@ -4,10 +4,42 @@ Allow: /
 # Sitemap location
 Sitemap: https://www.bratgenerator.store/sitemap.xml
 
-# Block access to internal files
+# Block access to internal files and development resources
 Disallow: /generate-og-image.html
+Disallow: /seo-offsite-strategy.md
 
-# Allow access to important files
+# Explicitly allow important resources for SEO
 Allow: /og-image.png
 Allow: /style.css
 Allow: /script.js
+Allow: /translations.js
+Allow: /android-chrome-*.png
+Allow: /apple-touch-icon.png
+Allow: /favicon*.png
+Allow: /favicon.ico
+
+# Crawl delay to be respectful (optional)
+Crawl-delay: 1
+
+# Additional sitemap references for comprehensive indexing
+Sitemap: https://www.bratgenerator.store/sitemap.xml
+
+# For Google specifically
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# For Bing specifically  
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Social media crawlers
+User-agent: facebookexternalhit/*
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Host directive (helps with canonical URLs)
+Host: https://www.bratgenerator.store

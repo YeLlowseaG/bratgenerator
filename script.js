@@ -36,8 +36,12 @@ class LiveBratGenerator {
         // Mode selection - instant updates
         this.modeBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
-                this.modeBtns.forEach(b => b.classList.remove('active'));
+                this.modeBtns.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-checked', 'false');
+                });
                 btn.classList.add('active');
+                btn.setAttribute('aria-checked', 'true');
                 this.settings.mode = btn.dataset.mode;
                 this.updatePreview();
             });
@@ -141,6 +145,9 @@ class LiveBratGenerator {
         // Smart text fitting with auto font size and wrapping
         this.drawSmartText(displayText);
 
+        // Update canvas accessibility label
+        this.updateCanvasAccessibility(displayText);
+
         // Add subtle watermark/placeholder effect for empty text
         if (!this.settings.text.trim()) {
             this.ctx.globalAlpha = 0.6;
@@ -150,6 +157,15 @@ class LiveBratGenerator {
             this.ctx.fillText(placeholderText, this.canvas.width / 2, this.canvas.height - 30);
             this.ctx.globalAlpha = 1;
         }
+    }
+
+    updateCanvasAccessibility(displayText) {
+        // Update aria-label with current content and mode
+        const mode = this.settings.mode;
+        const ariaLabel = displayText ? 
+            `Brat style album cover with text "${displayText}" on ${mode} background` :
+            `Brat style album cover preview on ${mode} background`;
+        this.canvas.setAttribute('aria-label', ariaLabel);
     }
 
     drawSpeedLines(backgroundColor) {
@@ -359,9 +375,20 @@ class LiveBratGenerator {
 
     downloadImage() {
         if (!this.settings.text.trim()) {
-            alert('Please enter some text first!');
+            window.notificationManager?.warning('Please enter some text first!', {
+                actions: [
+                    {
+                        text: 'Focus Input',
+                        onclick: 'document.getElementById("text-input").focus()',
+                        style: 'primary'
+                    }
+                ]
+            });
             return;
         }
+        
+        // Show loading notification
+        const loadingNotification = window.notificationManager?.loading('Generating your brat cover...');
 
         // Create high-resolution version
         const scale = 2;
@@ -406,7 +433,36 @@ class LiveBratGenerator {
         link.click();
         document.body.removeChild(link);
 
-        // Success feedback
+        // Track download event
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'download', {
+                'event_category': 'Engagement',
+                'event_label': 'Main Generator Download',
+                'value': 1,
+                'custom_parameters': {
+                    'text_length': this.settings.text.length,
+                    'mode': this.settings.mode,
+                    'speed_lines': this.settings.speedLines,
+                    'filename': filename
+                }
+            });
+        }
+
+        // Hide loading and show success
+        setTimeout(() => {
+            window.notificationManager?.remove(loadingNotification);
+            window.notificationManager?.success('Cover downloaded successfully! 🎉', {
+                actions: [
+                    {
+                        text: 'Share on Twitter',
+                        onclick: 'window.bratGeneratorInstance?.shareToTwitter()',
+                        style: 'secondary'
+                    }
+                ]
+            });
+        }, 500);
+
+        // Success feedback on button
         const originalText = this.downloadBtn.textContent;
         this.downloadBtn.textContent = '✅ Downloaded!';
         setTimeout(() => {
@@ -618,7 +674,15 @@ class LiveBratGenerator {
 
     shareToTwitter() {
         if (!this.settings.text.trim()) {
-            alert('Please enter some text first to create your brat cover!');
+            window.notificationManager?.warning('Please enter some text first to create your brat cover!', {
+                actions: [
+                    {
+                        text: 'Focus Input',
+                        onclick: 'document.getElementById("text-input").focus()',
+                        style: 'primary'
+                    }
+                ]
+            });
             return;
         }
 
@@ -627,20 +691,72 @@ class LiveBratGenerator {
         const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
         window.open(url, '_blank', 'width=600,height=400');
         
+        // Track Twitter share event
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'share', {
+                'event_category': 'Social',
+                'event_label': 'Twitter Share',
+                'method': 'twitter',
+                'custom_parameters': {
+                    'shared_text': userText,
+                    'mode': this.settings.mode,
+                    'speed_lines': this.settings.speedLines
+                }
+            });
+        }
+        
         // Show helpful tip
         setTimeout(() => {
-            alert('💡 Tip: Download your image first, then attach it to your tweet for maximum impact!');
+            window.notificationManager?.info('💡 Tip: Download your image first, then attach it to your tweet for maximum impact!', {
+                actions: [
+                    {
+                        text: 'Download Now',
+                        onclick: 'window.bratGeneratorInstance?.downloadImage()',
+                        style: 'primary'
+                    }
+                ]
+            });
         }, 1000);
     }
 
     shareToInstagram() {
         if (!this.settings.text.trim()) {
-            alert('Please enter some text first to create your brat cover!');
+            window.notificationManager?.warning('Please enter some text first to create your brat cover!', {
+                actions: [
+                    {
+                        text: 'Focus Input',
+                        onclick: 'document.getElementById("text-input").focus()',
+                        style: 'primary'
+                    }
+                ]
+            });
             return;
         }
 
         const userText = this.settings.text.toLowerCase();
-        alert(`📸 Ready to share on Instagram!\n\nSteps:\n1. Download your "${userText}" cover first\n2. Open Instagram and create a new post\n3. Upload your saved image\n4. Copy this caption:\n\n"Just created my '${userText}' brat-style cover! 🎨✨ Made with Brat Generator 💚 Try it: www.bratgenerator.store #brat #charliXCX #bratSummer #albumcover"`);
+        window.notificationManager?.info(`📸 Ready to share on Instagram!<br><br><strong>Steps:</strong><br>1. Download your "${userText}" cover first<br>2. Open Instagram and create a new post<br>3. Upload your saved image<br>4. Use this caption:<br><br><em>"Just created my '${userText}' brat-style cover! 🎨✨ Made with Brat Generator 💚"</em>`, {
+            actions: [
+                {
+                    text: 'Download Cover',
+                    onclick: 'window.bratGeneratorInstance?.downloadImage()',
+                    style: 'primary'
+                }
+            ]
+        });
+        
+        // Track Instagram share event
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'share', {
+                'event_category': 'Social',
+                'event_label': 'Instagram Share',
+                'method': 'instagram',
+                'custom_parameters': {
+                    'shared_text': userText,
+                    'mode': this.settings.mode,
+                    'speed_lines': this.settings.speedLines
+                }
+            });
+        }
     }
 }
 
@@ -816,9 +932,18 @@ function updateGalleryContent() {
     if (galleryGrid) {
         galleryGrid.innerHTML = data.map((item, index) => `
             <div class="gallery-item">
-                <div class="gallery-cover ${item.color}-cover">
-                    <div class="cover-text">${item.text}</div>
-                    <button class="gallery-download-btn" onclick="downloadGalleryItem('${item.text}', '${item.color}')" title="Download this cover">
+                <div class="gallery-cover ${item.color}-cover lazy-load" 
+                     role="img" 
+                     aria-label="Brat style album cover with text '${item.text}' on ${item.color} background"
+                     data-text="${item.text}" 
+                     data-color="${item.color}"
+                     data-index="${index}">
+                    <div class="cover-text" style="opacity: 0;">${item.text}</div>
+                    <div class="lazy-loading-placeholder">
+                        <div class="loading-spinner"></div>
+                        <span class="loading-text">Loading...</span>
+                    </div>
+                    <button class="gallery-download-btn" onclick="downloadGalleryItem('${item.text}', '${item.color}')" title="Download '${item.text}' brat cover as PNG" aria-label="Download ${item.text} cover" style="opacity: 0;">
                         📥
                     </button>
                 </div>
@@ -828,7 +953,94 @@ function updateGalleryContent() {
                 </div>
             </div>
         `).join('');
+        
+        // Initialize lazy loading
+        initGalleryLazyLoading();
     }
+}
+
+// Gallery Lazy Loading Implementation
+function initGalleryLazyLoading() {
+    const lazyItems = document.querySelectorAll('.gallery-cover.lazy-load');
+    
+    // Check if Intersection Observer is supported
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    loadGalleryItem(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            // Start loading when item is 100px before entering viewport
+            rootMargin: '100px 0px',
+            threshold: 0.1
+        });
+
+        lazyItems.forEach(item => {
+            imageObserver.observe(item);
+        });
+    } else {
+        // Fallback for browsers without Intersection Observer
+        lazyItems.forEach(item => {
+            loadGalleryItem(item);
+        });
+    }
+}
+
+function loadGalleryItem(coverElement) {
+    const text = coverElement.dataset.text;
+    const color = coverElement.dataset.color;
+    const index = parseInt(coverElement.dataset.index);
+    
+    // Add loading class for animation
+    coverElement.classList.add('loading');
+    
+    // Simulate loading delay for better UX (can be removed in production)
+    setTimeout(() => {
+        // Hide placeholder
+        const placeholder = coverElement.querySelector('.lazy-loading-placeholder');
+        if (placeholder) {
+            placeholder.style.opacity = '0';
+        }
+        
+        // Show content with animation
+        const coverText = coverElement.querySelector('.cover-text');
+        const downloadBtn = coverElement.querySelector('.gallery-download-btn');
+        
+        if (coverText) {
+            coverText.style.transition = 'opacity 0.3s ease-in-out';
+            coverText.style.opacity = '1';
+        }
+        
+        if (downloadBtn) {
+            downloadBtn.style.transition = 'opacity 0.3s ease-in-out 0.1s';
+            downloadBtn.style.opacity = '1';
+        }
+        
+        // Remove loading state
+        setTimeout(() => {
+            coverElement.classList.remove('loading', 'lazy-load');
+            if (placeholder) {
+                placeholder.remove();
+            }
+            
+            // Track lazy load event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'gallery_item_loaded', {
+                    'event_category': 'Performance',
+                    'event_label': 'Lazy Load',
+                    'custom_parameters': {
+                        'item_text': text,
+                        'item_color': color,
+                        'item_index': index
+                    }
+                });
+            }
+        }, 400);
+        
+    }, Math.random() * 200 + 100); // Staggered loading for visual effect
 }
 
 // Function to download gallery items
@@ -837,6 +1049,8 @@ function downloadGalleryItem(text, mode) {
     const tempCanvas = document.createElement('canvas');
     tempCanvas.width = 800;
     tempCanvas.height = 800;
+    tempCanvas.setAttribute('aria-label', `Generated brat style album cover with text: ${text}`);
+    tempCanvas.setAttribute('role', 'img');
     const tempCtx = tempCanvas.getContext('2d');
     
     // Generate the cover
@@ -844,9 +1058,24 @@ function downloadGalleryItem(text, mode) {
     
     // Download the image
     const link = document.createElement('a');
-    link.download = `brat-${text.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}.png`;
+    const filename = `brat-${text.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}.png`;
+    link.download = filename;
     link.href = tempCanvas.toDataURL('image/png');
     link.click();
+    
+    // Track gallery download event
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'download', {
+            'event_category': 'Engagement',
+            'event_label': 'Gallery Download',
+            'value': 1,
+            'custom_parameters': {
+                'gallery_text': text,
+                'gallery_mode': mode,
+                'filename': filename
+            }
+        });
+    }
 }
 
 // Helper function to generate cover on any canvas
@@ -1041,6 +1270,13 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
+    // Initialize keyboard navigation
+    window.keyboardNav = new KeyboardNavigationManager();
+    
+    // Initialize notification system
+    window.notificationManager = new NotificationManager();
+    window.errorHandler = new ErrorHandler();
+
     // Focus on text input for better UX
     setTimeout(() => {
         const textInput = document.getElementById('text-input');
@@ -1048,4 +1284,433 @@ document.addEventListener('DOMContentLoaded', () => {
             textInput.focus();
         }
     }, 500);
+    
+    // Show welcome message for new users
+    setTimeout(() => {
+        if (!localStorage.getItem('brat-welcomed')) {
+            window.notificationManager?.info('👋 Welcome to Brat Generator! Press <kbd>?</kbd> to see keyboard shortcuts.', {
+                actions: [
+                    {
+                        text: 'Show Shortcuts',
+                        onclick: 'window.keyboardNav?.toggleHelp()',
+                        style: 'primary'
+                    }
+                ]
+            });
+            localStorage.setItem('brat-welcomed', 'true');
+        }
+    }, 2000);
 });
+
+// Keyboard Shortcuts and Navigation
+class KeyboardNavigationManager {
+    constructor() {
+        this.helpVisible = false;
+        this.init();
+    }
+
+    init() {
+        document.addEventListener('keydown', this.handleKeyPress.bind(this));
+        this.createHelpOverlay();
+    }
+
+    handleKeyPress(e) {
+        // Ignore if user is typing in input fields
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) {
+            return;
+        }
+
+        // Prevent default for our shortcuts
+        const shortcutKeys = ['d', 'g', 'a', 'h', 'm', 'e', 't', 'i', '?', 'Escape'];
+        if (shortcutKeys.includes(e.key) || (e.ctrlKey && e.key === 's')) {
+            e.preventDefault();
+        }
+
+        switch(e.key.toLowerCase()) {
+            case 'd':
+                this.downloadCover();
+                break;
+            case 'g':
+                this.navigateToGallery();
+                break;
+            case 'a':
+                this.navigateToAbout();
+                break;
+            case 'h':
+                this.navigateToHome();
+                break;
+            case 'm':
+                this.toggleMode();
+                break;
+            case 'e':
+                this.toggleSpeedLines();
+                break;
+            case 't':
+                this.focusTextInput();
+                break;
+            case 'i':
+                this.shareToInstagram();
+                break;
+            case '?':
+                this.toggleHelp();
+                break;
+            case 'escape':
+                this.hideHelp();
+                break;
+        }
+
+        // Handle Ctrl+S for download
+        if (e.ctrlKey && e.key === 's') {
+            e.preventDefault();
+            this.downloadCover();
+        }
+
+        // Track keyboard shortcut usage
+        if (typeof gtag !== 'undefined' && (shortcutKeys.includes(e.key) || (e.ctrlKey && e.key === 's'))) {
+            gtag('event', 'keyboard_shortcut', {
+                'event_category': 'User Interface',
+                'event_label': 'Keyboard Navigation',
+                'custom_parameters': {
+                    'key_pressed': e.key,
+                    'ctrl_key': e.ctrlKey,
+                    'current_section': this.getCurrentSection()
+                }
+            });
+        }
+    }
+
+    downloadCover() {
+        if (window.bratGeneratorInstance) {
+            window.bratGeneratorInstance.downloadImage();
+        }
+    }
+
+    navigateToGallery() {
+        if (typeof showGallery === 'function') {
+            showGallery();
+        }
+    }
+
+    navigateToAbout() {
+        if (typeof showAbout === 'function') {
+            showAbout();
+        }
+    }
+
+    navigateToHome() {
+        if (typeof showCreateSection === 'function') {
+            showCreateSection();
+        }
+    }
+
+    toggleMode() {
+        const modeButtons = document.querySelectorAll('.mode-btn');
+        const activeButton = document.querySelector('.mode-btn.active');
+        const nextButton = activeButton?.nextElementSibling || modeButtons[0];
+        
+        if (nextButton) {
+            nextButton.click();
+        }
+    }
+
+    toggleSpeedLines() {
+        const speedLinesToggle = document.getElementById('speed-lines');
+        if (speedLinesToggle) {
+            speedLinesToggle.click();
+        }
+    }
+
+    focusTextInput() {
+        const textInput = document.getElementById('text-input');
+        if (textInput) {
+            textInput.focus();
+            textInput.select();
+        }
+    }
+
+    shareToInstagram() {
+        if (window.bratGeneratorInstance) {
+            window.bratGeneratorInstance.shareToInstagram();
+        }
+    }
+
+    toggleHelp() {
+        const helpOverlay = document.getElementById('keyboard-help-overlay');
+        if (helpOverlay) {
+            this.helpVisible = !this.helpVisible;
+            helpOverlay.style.display = this.helpVisible ? 'flex' : 'none';
+            
+            if (this.helpVisible) {
+                helpOverlay.focus();
+            }
+        }
+    }
+
+    hideHelp() {
+        const helpOverlay = document.getElementById('keyboard-help-overlay');
+        if (helpOverlay && this.helpVisible) {
+            this.helpVisible = false;
+            helpOverlay.style.display = 'none';
+        }
+    }
+
+    getCurrentSection() {
+        if (document.getElementById('gallery').style.display !== 'none') {
+            return 'gallery';
+        } else if (document.getElementById('about').style.display !== 'none') {
+            return 'about';
+        } else {
+            return 'home';
+        }
+    }
+
+    createHelpOverlay() {
+        const overlay = document.createElement('div');
+        overlay.id = 'keyboard-help-overlay';
+        overlay.className = 'keyboard-help-overlay';
+        overlay.style.display = 'none';
+        overlay.setAttribute('tabindex', '-1');
+        
+        overlay.innerHTML = `
+            <div class="help-content">
+                <div class="help-header">
+                    <h3>⌨️ Keyboard Shortcuts</h3>
+                    <button class="help-close" onclick="keyboardNav.hideHelp()">×</button>
+                </div>
+                <div class="help-body">
+                    <div class="shortcut-grid">
+                        <div class="shortcut-section">
+                            <h4>Navigation</h4>
+                            <div class="shortcut-item">
+                                <kbd>H</kbd>
+                                <span>Home</span>
+                            </div>
+                            <div class="shortcut-item">
+                                <kbd>G</kbd>
+                                <span>Gallery</span>
+                            </div>
+                            <div class="shortcut-item">
+                                <kbd>A</kbd>
+                                <span>About</span>
+                            </div>
+                        </div>
+                        
+                        <div class="shortcut-section">
+                            <h4>Actions</h4>
+                            <div class="shortcut-item">
+                                <kbd>D</kbd>
+                                <span>Download</span>
+                            </div>
+                            <div class="shortcut-item">
+                                <kbd>Ctrl</kbd> + <kbd>S</kbd>
+                                <span>Download</span>
+                            </div>
+                            <div class="shortcut-item">
+                                <kbd>I</kbd>
+                                <span>Share to Instagram</span>
+                            </div>
+                        </div>
+                        
+                        <div class="shortcut-section">
+                            <h4>Editor</h4>
+                            <div class="shortcut-item">
+                                <kbd>T</kbd>
+                                <span>Focus text input</span>
+                            </div>
+                            <div class="shortcut-item">
+                                <kbd>M</kbd>
+                                <span>Toggle mode</span>
+                            </div>
+                            <div class="shortcut-item">
+                                <kbd>E</kbd>
+                                <span>Toggle speed lines</span>
+                            </div>
+                        </div>
+                        
+                        <div class="shortcut-section">
+                            <h4>Help</h4>
+                            <div class="shortcut-item">
+                                <kbd>?</kbd>
+                                <span>Show/hide this help</span>
+                            </div>
+                            <div class="shortcut-item">
+                                <kbd>Esc</kbd>
+                                <span>Close help</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(overlay);
+        
+        // Close on background click
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                this.hideHelp();
+            }
+        });
+    }
+}
+
+// Enhanced User Feedback and Error Handling System
+class NotificationManager {
+    constructor() {
+        this.notifications = [];
+        this.container = null;
+        this.init();
+    }
+
+    init() {
+        this.createContainer();
+    }
+
+    createContainer() {
+        this.container = document.createElement('div');
+        this.container.id = 'notification-container';
+        this.container.className = 'notification-container';
+        document.body.appendChild(this.container);
+    }
+
+    show(message, type = 'info', duration = 4000, options = {}) {
+        const notification = this.createNotification(message, type, options);
+        this.container.appendChild(notification);
+        this.notifications.push(notification);
+
+        // Trigger entrance animation
+        requestAnimationFrame(() => {
+            notification.classList.add('show');
+        });
+
+        // Auto-remove after duration
+        if (duration > 0) {
+            setTimeout(() => {
+                this.remove(notification);
+            }, duration);
+        }
+
+        return notification;
+    }
+
+    createNotification(message, type, options) {
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        
+        const icon = this.getIcon(type);
+        const actions = options.actions || [];
+        
+        notification.innerHTML = `
+            <div class="notification-content">
+                <div class="notification-icon">${icon}</div>
+                <div class="notification-message">${message}</div>
+                ${actions.length > 0 ? `
+                    <div class="notification-actions">
+                        ${actions.map(action => 
+                            `<button class="notification-action ${action.style || ''}" onclick="${action.onclick}">${action.text}</button>`
+                        ).join('')}
+                    </div>
+                ` : ''}
+                <button class="notification-close" onclick="window.notificationManager.remove(this.parentElement)">×</button>
+            </div>
+            <div class="notification-progress"></div>
+        `;
+
+        return notification;
+    }
+
+    getIcon(type) {
+        const icons = {
+            success: '✅',
+            error: '❌',
+            warning: '⚠️',
+            info: 'ℹ️',
+            loading: '⏳'
+        };
+        return icons[type] || icons.info;
+    }
+
+    remove(notification) {
+        if (!notification || !notification.parentElement) return;
+        
+        notification.classList.add('hide');
+        setTimeout(() => {
+            if (notification.parentElement) {
+                notification.parentElement.removeChild(notification);
+            }
+            const index = this.notifications.indexOf(notification);
+            if (index > -1) {
+                this.notifications.splice(index, 1);
+            }
+        }, 300);
+    }
+
+    success(message, options = {}) {
+        return this.show(message, 'success', 3000, options);
+    }
+
+    error(message, options = {}) {
+        return this.show(message, 'error', 6000, options);
+    }
+
+    warning(message, options = {}) {
+        return this.show(message, 'warning', 4000, options);
+    }
+
+    info(message, options = {}) {
+        return this.show(message, 'info', 4000, options);
+    }
+
+    loading(message, options = {}) {
+        return this.show(message, 'loading', 0, options);
+    }
+
+    clear() {
+        this.notifications.forEach(notification => {
+            this.remove(notification);
+        });
+    }
+}
+
+// Enhanced Error Handling for the main app
+class ErrorHandler {
+    constructor() {
+        this.setupGlobalErrorHandling();
+    }
+
+    setupGlobalErrorHandling() {
+        // Catch unhandled errors
+        window.addEventListener('error', (event) => {
+            this.handleError(event.error, 'Unexpected error occurred');
+        });
+
+        // Catch unhandled promise rejections
+        window.addEventListener('unhandledrejection', (event) => {
+            this.handleError(event.reason, 'Network or processing error');
+            event.preventDefault();
+        });
+    }
+
+    handleError(error, userMessage = 'Something went wrong') {
+        console.error('Error caught:', error);
+        
+        // Track error in analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'exception', {
+                'description': error.message || userMessage,
+                'fatal': false
+            });
+        }
+
+        // Show user-friendly error message
+        window.notificationManager?.error(userMessage, {
+            actions: [
+                {
+                    text: 'Try Again',
+                    onclick: 'location.reload()',
+                    style: 'primary'
+                }
+            ]
+        });
+    }
+}

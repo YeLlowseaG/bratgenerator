@@ -895,8 +895,22 @@ class LanguageManager {
     setLanguage(lang) {
         if (!translations[lang]) return;
 
+        const previousLanguage = this.currentLanguage;
         this.currentLanguage = lang;
         localStorage.setItem('bratgen-language', lang);
+        
+        // Track language change event
+        if (typeof gtag !== 'undefined' && previousLanguage !== lang) {
+            gtag('event', 'language_change', {
+                'event_category': 'User Interface',
+                'event_label': 'Language Switch',
+                'custom_parameters': {
+                    'previous_language': previousLanguage,
+                    'new_language': lang,
+                    'switch_method': 'dropdown_selector'
+                }
+            });
+        }
         
         // Update URL without reload
         const url = new URL(window.location);
