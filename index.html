@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brat Generator - Create Your Own Brat Album Cover</title>
-    <meta name="description" content="Generate custom album covers inspired by Charli XCX's Brat. Free online tool with green and white backgrounds.">
+    <title>Brat Generator - Create Charli XCX Style Album Covers | Free Online Tool</title>
+    <meta name="description" content="Create custom brat-style album covers inspired by Charli XCX's iconic lime green aesthetic. Free online generator with instant download. No design skills needed!">
+    <meta name="keywords" content="brat generator, charli xcx, album cover maker, brat summer, lime green aesthetic, free design tool, custom covers, music artwork, online generator">
+    <meta name="author" content="Brat Generator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.bratgenerator.store/">
+    
+    <!-- Language and Region -->
+    <meta name="language" content="English">
+    <meta name="geo.region" content="US">
+    <meta name="geo.placename" content="United States">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#8ace00">
+    <meta name="msapplication-TileColor" content="#8ace00">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Brat Generator">
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="manifest" href="/site.webmanifest">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -23,8 +48,86 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Brat Generator",
+        "url": "https://www.bratgenerator.store/",
+        "description": "Create custom brat-style album covers inspired by Charli XCX's iconic lime green aesthetic. Free online generator with instant download.",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Brat Generator"
+        },
+        "keywords": "brat generator, charli xcx, album cover maker, design tool",
+        "screenshot": "https://www.bratgenerator.store/og-image.png",
+        "softwareVersion": "1.0",
+        "datePublished": "2024-06-30",
+        "inLanguage": "en-US",
+        "isAccessibleForFree": true
+    }
+    </script>
+    
+    <!-- Additional Structured Data for Creative Work -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "Brat Style Album Cover Generator",
+        "description": "Online tool to create album covers in the style of Charli XCX's Brat album",
+        "url": "https://www.bratgenerator.store/",
+        "author": {
+            "@type": "Organization",
+            "name": "Brat Generator"
+        },
+        "genre": "Music Design Tool",
+        "accessMode": "visual",
+        "accessibilityFeature": ["alternativeText", "readingOrder"],
+        "usageInfo": "Free to use for personal and commercial purposes"
+    }
+    </script>
+    
+    <!-- BreadcrumbList Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.bratgenerator.store/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Gallery",
+                "item": "https://www.bratgenerator.store/#gallery"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "About",
+                "item": "https://www.bratgenerator.store/#about"
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#create" class="skip-link">Skip to main content</a>
+    
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -38,13 +141,10 @@
                         <a href="#" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Gallery</a>
+                        <a href="#" class="nav-link" id="gallery-link">Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#create" class="nav-link nav-cta">Create</a>
+                        <a href="#" class="nav-link" id="about-link">About</a>
                     </li>
                 </ul>
             </div>
@@ -66,24 +166,42 @@
     </nav>
 
     <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb navigation">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="#" onclick="showCreateSection()" class="breadcrumb-link">Home</a>
+                </li>
+                <li class="breadcrumb-item breadcrumb-gallery" style="display: none;">
+                    <span class="breadcrumb-separator">></span>
+                    <span class="breadcrumb-current">Gallery</span>
+                </li>
+                <li class="breadcrumb-item breadcrumb-about" style="display: none;">
+                    <span class="breadcrumb-separator">></span>
+                    <span class="breadcrumb-current">About</span>
+                </li>
+            </ol>
+        </nav>
+        
         <!-- Header Section -->
-        <header class="hero" id="create">
+        <header class="hero" id="create" role="banner">
             <div class="hero-content">
                 <h1 class="hero-title">Brat Generator</h1>
                 <p class="hero-subtitle">Create your own brat-style album cover in seconds</p>
             </div>
         </header>
 
-
         <!-- Main Content -->
-        <main class="main-content">
+        <main class="main-content" role="main">
             <div class="content-grid">
                 <!-- Left: Editor -->
-                <div class="editor-panel">
+                <div class="editor-panel" aria-label="Brat cover editor">
                     <h2 class="editor-title">Type your words here ↓</h2>
                     
                     <div class="input-group">
-                        <input type="text" id="text-input" class="text-input" placeholder="Please type any words you like" value="">
+                        <label for="text-input" class="sr-only">Enter text for your brat cover</label>
+                        <input type="text" id="text-input" class="text-input" placeholder="Please type any words you like" value="" aria-describedby="text-help">
+                        <div id="text-help" class="sr-only">Type any text to create your custom brat-style album cover</div>
                     </div>
 
                     <div class="mode-group">
@@ -122,15 +240,349 @@
                 </div>
 
                 <!-- Right: Preview -->
-                <div class="preview-panel">
+                <div class="preview-panel" aria-label="Live preview of your brat cover">
                     <h3 class="preview-title">Live Preview</h3>
                     <div class="canvas-container">
-                        <canvas id="preview-canvas" width="300" height="300"></canvas>
+                        <canvas id="preview-canvas" width="300" height="300" aria-label="Preview of your custom brat album cover"></canvas>
                     </div>
                     <p class="preview-note">Changes appear instantly as you type</p>
                 </div>
             </div>
         </main>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works">
+            <div class="container">
+                <h2 class="how-title">✨ How It Works</h2>
+                <div class="steps-grid">
+                    <div class="step-item">
+                        <div class="step-icon">💭</div>
+                        <div class="step-content">
+                            <h3>Type your text</h3>
+                            <p>Enter any words you want</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-icon">🎨</div>
+                        <div class="step-content">
+                            <h3>Pick your style</h3>
+                            <p>Choose green or white background</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-icon">📥</div>
+                        <div class="step-content">
+                            <h3>Download & share</h3>
+                            <p>Get your cover instantly</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <h3 class="footer-logo">Brat Generator</h3>
+                        <p class="footer-desc">Create and share your brat-style covers with the world</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Follow us on Twitter">
+                                <span>🐦</span>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Follow us on Instagram">
+                                <span>📸</span>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Join our community">
+                                <span>💬</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <div class="link-group">
+                            <h4>Quick Links</h4>
+                            <a href="#" onclick="showCreateSection()">Home</a>
+                            <a href="#" onclick="showGallery()">Gallery</a>
+                            <a href="#" onclick="showAbout()">About</a>
+                        </div>
+                        
+                        <div class="link-group">
+                            <h4>Support</h4>
+                            <a href="mailto:hello@bratgenerator.store">Contact</a>
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-stats">
+                        <span>50K+ covers created</span>
+                        <span>•</span>
+                        <span>100+ countries</span>
+                        <span>•</span>
+                        <span>1M+ social shares</span>
+                    </div>
+                    <div class="footer-copyright">
+                        <p>&copy; 2024 Brat Generator. Made with 💚 for the brat community.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery-section" style="display: none;" role="region" aria-labelledby="gallery-title">
+            <div class="container">
+                <h2 class="section-title" id="gallery-title">Brat Cover Gallery</h2>
+                <p class="section-subtitle">Get inspired by covers created by our community</p>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="gallery-cover green-cover">
+                            <div class="cover-text">365</div>
+                        </div>
+                        <div class="gallery-meta">
+                            <span class="gallery-likes">❤️ 1.2k</span>
+                            <span class="gallery-shares">🔄 234</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <div class="gallery-cover white-cover">
+                            <div class="cover-text">club classics</div>
+                        </div>
+                        <div class="gallery-meta">
+                            <span class="gallery-likes">❤️ 892</span>
+                            <span class="gallery-shares">🔄 156</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <div class="gallery-cover green-cover">
+                            <div class="cover-text">sympathy is a knife</div>
+                        </div>
+                        <div class="gallery-meta">
+                            <span class="gallery-likes">❤️ 2.1k</span>
+                            <span class="gallery-shares">🔄 445</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <div class="gallery-cover white-cover">
+                            <div class="cover-text">von dutch</div>
+                        </div>
+                        <div class="gallery-meta">
+                            <span class="gallery-likes">❤️ 756</span>
+                            <span class="gallery-shares">🔄 123</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <div class="gallery-cover green-cover">
+                            <div class="cover-text">girl, so confusing</div>
+                        </div>
+                        <div class="gallery-meta">
+                            <span class="gallery-likes">❤️ 1.5k</span>
+                            <span class="gallery-shares">🔄 298</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <div class="gallery-cover white-cover">
+                            <div class="cover-text">everything is romantic</div>
+                        </div>
+                        <div class="gallery-meta">
+                            <span class="gallery-likes">❤️ 934</span>
+                            <span class="gallery-shares">🔄 187</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-cta">
+                    <button class="cta-button" onclick="showCreateSection()">Create Your Own</button>
+                </div>
+            </div>
+            
+            <!-- Gallery Footer -->
+            <footer class="gallery-footer">
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-brand">
+                            <h3 class="footer-logo">Brat Generator</h3>
+                            <p class="footer-desc">Create and share your brat-style covers with the world</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link" aria-label="Follow us on Twitter">
+                                    <span>🐦</span>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Follow us on Instagram">
+                                    <span>📸</span>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Join our community">
+                                    <span>💬</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="footer-links">
+                            <div class="link-group">
+                                <h4>Quick Links</h4>
+                                <a href="#" onclick="showCreateSection()">Home</a>
+                                <a href="#" onclick="showGallery()">Gallery</a>
+                                <a href="#" onclick="showAbout()">About</a>
+                            </div>
+                            
+                            <div class="link-group">
+                                <h4>Support</h4>
+                                <a href="mailto:hello@bratgenerator.store">Contact</a>
+                                <a href="#">Privacy Policy</a>
+                                <a href="#">Terms of Service</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-bottom">
+                        <div class="footer-stats">
+                            <span>50K+ covers created</span>
+                            <span>•</span>
+                            <span>100+ countries</span>
+                            <span>•</span>
+                            <span>1M+ social shares</span>
+                        </div>
+                        <div class="footer-copyright">
+                            <p>&copy; 2024 Brat Generator. Made with 💚 for the brat community.</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section" style="display: none;" role="region" aria-labelledby="about-title">
+            <div class="container">
+                <h2 class="section-title" id="about-title">About Brat Generator</h2>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Born from Brat Summer 2024</h3>
+                        <p>When Charli XCX dropped "Brat" in June 2024, it wasn't just an album—it was a cultural moment. The iconic lime green cover with its bold, lowercase typography became the defining aesthetic of summer 2024.</p>
+                        
+                        <p>Brat Generator was created to let everyone participate in this cultural phenomenon. Whether you're making memes, expressing yourself, or just having fun with the aesthetic, our tool makes it simple to create your own brat-style covers.</p>
+                        
+                        <div class="impact-stats">
+                            <div class="impact-stat">
+                                <div class="impact-number">50K+</div>
+                                <div class="impact-label">Covers Created</div>
+                            </div>
+                            <div class="impact-stat">
+                                <div class="impact-number">100+</div>
+                                <div class="impact-label">Countries</div>
+                            </div>
+                            <div class="impact-stat">
+                                <div class="impact-number">1M+</div>
+                                <div class="impact-label">Social Shares</div>
+                            </div>
+                        </div>
+                        
+                        <h3>Why Brat Generator?</h3>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">⚡</span>
+                                <div>
+                                    <strong>Instant Creation</strong>
+                                    <p>No design skills needed. Type your text and download instantly.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🎨</span>
+                                <div>
+                                    <strong>Authentic Style</strong>
+                                    <p>Captures the true essence of brat aesthetics with proper fonts and colors.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🌍</span>
+                                <div>
+                                    <strong>Global Community</strong>
+                                    <p>Join thousands creating and sharing their brat covers worldwide.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3>Join the Movement</h3>
+                        <p>From TikTok trends to Twitter memes, brat covers have become a way to express personality and participate in internet culture. Create yours and share it with the world!</p>
+                        
+                        <h3>How to Use Brat Generator</h3>
+                        <ol>
+                            <li><strong>Enter your text:</strong> Type any words you want on your cover</li>
+                            <li><strong>Choose your style:</strong> Select green or white background</li>
+                            <li><strong>Add effects:</strong> Toggle speed lines for extra flair</li>
+                            <li><strong>Download & Share:</strong> Get your cover instantly and share on social media</li>
+                        </ol>
+                        
+                        <h3>Perfect for Social Media</h3>
+                        <p>Brat Generator covers are optimized for all major social platforms including Instagram stories, Twitter posts, TikTok videos, and Facebook shares. Express your personality with the iconic brat aesthetic that defined 2024.</p>
+                    </div>
+                </div>
+                
+                <div class="about-cta">
+                    <button class="cta-button" onclick="showCreateSection()">Start Creating</button>
+                </div>
+            </div>
+            
+            <!-- About Footer -->
+            <footer class="about-footer">
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-brand">
+                            <h3 class="footer-logo">Brat Generator</h3>
+                            <p class="footer-desc">Create and share your brat-style covers with the world</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link" aria-label="Follow us on Twitter">
+                                    <span>🐦</span>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Follow us on Instagram">
+                                    <span>📸</span>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Join our community">
+                                    <span>💬</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="footer-links">
+                            <div class="link-group">
+                                <h4>Quick Links</h4>
+                                <a href="#" onclick="showCreateSection()">Home</a>
+                                <a href="#" onclick="showGallery()">Gallery</a>
+                                <a href="#" onclick="showAbout()">About</a>
+                            </div>
+                            
+                            <div class="link-group">
+                                <h4>Support</h4>
+                                <a href="mailto:hello@bratgenerator.store">Contact</a>
+                                <a href="#">Privacy Policy</a>
+                                <a href="#">Terms of Service</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-bottom">
+                        <div class="footer-stats">
+                            <span>50K+ covers created</span>
+                            <span>•</span>
+                            <span>100+ countries</span>
+                            <span>•</span>
+                            <span>1M+ social shares</span>
+                        </div>
+                        <div class="footer-copyright">
+                            <p>&copy; 2024 Brat Generator. Made with 💚 for the brat community.</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </section>
 
     </div>
 

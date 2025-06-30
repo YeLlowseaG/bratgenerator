@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Generate OG Image</title>
+</head>
+<body>
+    <canvas id="og-canvas" width="1200" height="630" style="border: 1px solid #ccc;"></canvas>
+    <br>
+    <button onclick="downloadImage()">Download OG Image</button>
+
+    <script>
+        const canvas = document.getElementById('og-canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Draw background
+        ctx.fillStyle = '#8ace00';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Draw main text
+        ctx.fillStyle = '#000000';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.font = 'bold 120px Arial, sans-serif';
+        ctx.fillText('brat generator', canvas.width / 2, canvas.height / 2 - 60);
+
+        // Draw subtitle
+        ctx.font = '36px Arial, sans-serif';
+        ctx.fillText('Create your own brat-style album covers', canvas.width / 2, canvas.height / 2 + 60);
+
+        // Draw URL
+        ctx.font = '28px Arial, sans-serif';
+        ctx.fillText('www.bratgenerator.store', canvas.width / 2, canvas.height / 2 + 140);
+
+        function downloadImage() {
+            const link = document.createElement('a');
+            link.download = 'og-image.png';
+            link.href = canvas.toDataURL('image/png', 1.0);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Auto download after 1 second for convenience
+        setTimeout(() => {
+            downloadImage();
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.bratgenerator.store/sitemap.xml
+
+# Block access to internal files
+Disallow: /generate-og-image.html
+
+# Allow access to important files
+Allow: /og-image.png
+Allow: /style.css
+Allow: /script.js

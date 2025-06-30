@@ -606,6 +606,88 @@ class LiveBratGenerator {
     }
 }
 
+// Page navigation functions
+function showCreateSection() {
+    hideAllSections();
+    document.querySelector('.hero').style.display = 'block';
+    document.querySelector('.main-content').style.display = 'block';
+    document.querySelector('.how-it-works').style.display = 'block';
+    document.querySelector('.main-footer').style.display = 'block';
+    
+    // Update breadcrumb
+    updateBreadcrumb('home');
+    
+    // Update nav active state
+    updateNavActive('home');
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
+}
+
+function showGallery() {
+    hideAllSections();
+    document.getElementById('gallery').style.display = 'block';
+    document.querySelector('.gallery-footer').style.display = 'block';
+    
+    // Update breadcrumb
+    updateBreadcrumb('gallery');
+    
+    updateNavActive('gallery');
+    window.scrollTo(0, 0);
+}
+
+function showAbout() {
+    hideAllSections();
+    document.getElementById('about').style.display = 'block';
+    document.querySelector('.about-footer').style.display = 'block';
+    
+    // Update breadcrumb
+    updateBreadcrumb('about');
+    
+    updateNavActive('about');
+    window.scrollTo(0, 0);
+}
+
+function hideAllSections() {
+    document.querySelector('.hero').style.display = 'none';
+    document.querySelector('.main-content').style.display = 'none';
+    document.querySelector('.how-it-works').style.display = 'none';
+    document.querySelector('.main-footer').style.display = 'none';
+    document.querySelector('.gallery-footer').style.display = 'none';
+    document.querySelector('.about-footer').style.display = 'none';
+    document.getElementById('gallery').style.display = 'none';
+    document.getElementById('about').style.display = 'none';
+}
+
+function updateNavActive(section) {
+    // Remove active class from all nav links
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('nav-active');
+    });
+    
+    // Add active class to current section
+    if (section === 'home') {
+        document.querySelector('.nav-link[href="#"]').classList.add('nav-active');
+    } else if (section === 'gallery') {
+        document.getElementById('gallery-link').classList.add('nav-active');
+    } else if (section === 'about') {
+        document.getElementById('about-link').classList.add('nav-active');
+    }
+}
+
+function updateBreadcrumb(section) {
+    // Hide all breadcrumb items except home
+    document.querySelector('.breadcrumb-gallery').style.display = 'none';
+    document.querySelector('.breadcrumb-about').style.display = 'none';
+    
+    // Show current section breadcrumb
+    if (section === 'gallery') {
+        document.querySelector('.breadcrumb-gallery').style.display = 'flex';
+    } else if (section === 'about') {
+        document.querySelector('.breadcrumb-about').style.display = 'flex';
+    }
+}
+
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new LiveBratGenerator();
@@ -620,6 +702,31 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.toggle('active');
         });
     }
+    
+    // Navigation event listeners
+    document.querySelector('.nav-link[href="#"]').addEventListener('click', (e) => {
+        e.preventDefault();
+        showCreateSection();
+    });
+    
+    document.getElementById('gallery-link').addEventListener('click', (e) => {
+        e.preventDefault();
+        showGallery();
+    });
+    
+    document.getElementById('about-link').addEventListener('click', (e) => {
+        e.preventDefault();
+        showAbout();
+    });
+    
+    // Brand link goes to home
+    document.querySelector('.brand-link').addEventListener('click', (e) => {
+        e.preventDefault();
+        showCreateSection();
+    });
+    
+    // Initialize with home page
+    updateNavActive('home');
 
     // Add smooth animations
     const observer = new IntersectionObserver((entries) => {
