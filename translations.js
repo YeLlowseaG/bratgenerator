@@ -101,7 +101,25 @@ const translations = {
         german: "Deutsch",
         portuguese: "Português",
         spanish: "Español", 
-        italian: "Italiano"
+        italian: "Italiano",
+
+        // SEO Meta Description
+        metaDescription: "Create and download custom brat-style album covers in 7 languages. Browse our curated gallery, get inspired, and instantly download your covers. Free forever with multi-language support!",
+
+        // Explore Brat Culture Section
+        exploreTitle: "Explore Brat Culture",
+        exploreSubtitle: "Dive deeper into the brat phenomenon with these videos and articles that capture the essence of this cultural movement.",
+        video1Title: "'Brat Summer' Explained",
+        video1Desc: "Understanding the cultural phenomenon that defined summer 2024",
+        video2Title: "Charli XCX - 360 (Official Video)",
+        video2Desc: "Experience the iconic brat aesthetic in motion",
+        video3Title: "Designer's Take on Brat Cover",
+        video3Desc: "Professional analysis of the minimalist design approach",
+        video4Title: "Brat Design Analysis",
+        video4Desc: "Deep dive into the typography and aesthetic choices",
+        articleTitle: "The Phenomenon Behind Charli XCX's Brat Album",
+        articleDesc: "An in-depth look at how a simple green cover became a cultural statement",
+        readMore: "Read Full Article →"
     },
 
     nl: {
@@ -205,7 +223,25 @@ const translations = {
         german: "Deutsch",
         portuguese: "Português",
         spanish: "Español",
-        italian: "Italiano"
+        italian: "Italiano",
+
+        // SEO Meta Description
+        metaDescription: "Maak en download aangepaste brat-stijl albumhoezen in 7 talen. Blader door onze gecureerde galerij, raak geïnspireerd en download direct je hoezen. Voor altijd gratis!",
+
+        // Explore Brat Culture Section
+        exploreTitle: "Ontdek Brat Cultuur",
+        exploreSubtitle: "Duik dieper in het brat fenomeen met deze video's en artikelen die de essentie van deze culturele beweging vastleggen.",
+        video1Title: "'Brat Summer' Uitgelegd",
+        video1Desc: "Het culturele fenomeen begrijpen dat zomer 2024 definieerde",
+        video2Title: "Charli XCX - 360 (Officiële Video)",
+        video2Desc: "Ervaar de iconische brat esthetiek in beweging",
+        video3Title: "Designer's Kijk op Brat Hoes",
+        video3Desc: "Professionele analyse van de minimalistische ontwerpbenadering",
+        video4Title: "Brat Design Analyse",
+        video4Desc: "Diepgaande duik in de typografie en esthetische keuzes",
+        articleTitle: "Het Fenomeen Achter Charli XCX's Brat Album",
+        articleDesc: "Een diepgaande blik op hoe een simpele groene hoes een cultureel statement werd",
+        readMore: "Lees Volledig Artikel →"
     },
 
     fr: {
@@ -309,7 +345,25 @@ const translations = {
         german: "Deutsch",
         portuguese: "Português",
         spanish: "Español",
-        italian: "Italiano"
+        italian: "Italiano",
+
+        // SEO Meta Description
+        metaDescription: "Créez et téléchargez des pochettes d'album de style brat personnalisées en 7 langues. Parcourez notre galerie sélectionnée, inspirez-vous et téléchargez instantanément vos pochettes. Gratuit pour toujours avec support multilingue!",
+
+        // Explore Brat Culture Section
+        exploreTitle: "Explorer la Culture Brat",
+        exploreSubtitle: "Plongez plus profondément dans le phénomène brat avec ces vidéos et articles qui capturent l'essence de ce mouvement culturel.",
+        video1Title: "'Brat Summer' Expliqué",
+        video1Desc: "Comprendre le phénomène culturel qui a défini l'été 2024",
+        video2Title: "Charli XCX - 360 (Vidéo Officielle)",
+        video2Desc: "Découvrez l'esthétique brat iconique en mouvement",
+        video3Title: "Point de Vue du Designer sur la Pochette Brat",
+        video3Desc: "Analyse professionnelle de l'approche de design minimaliste",
+        video4Title: "Analyse du Design Brat",
+        video4Desc: "Plongée profonde dans la typographie et les choix esthétiques",
+        articleTitle: "Le Phénomène Derrière l'Album Brat de Charli XCX",
+        articleDesc: "Un regard approfondi sur comment une simple pochette verte est devenue une déclaration culturelle",
+        readMore: "Lire l'Article Complet →"
     },
 
     de: {
@@ -413,7 +467,25 @@ const translations = {
         german: "Deutsch",
         portuguese: "Português",
         spanish: "Español",
-        italian: "Italiano"
+        italian: "Italiano",
+
+        // SEO Meta Description
+        metaDescription: "Erstelle und lade individuelle Brat-Style Albumcover in 7 Sprachen herunter. Durchstöbere unsere kuratierte Galerie, lass dich inspirieren und lade deine Cover sofort herunter. Für immer kostenlos mit mehrsprachiger Unterstützung!",
+
+        // Explore Brat Culture Section
+        exploreTitle: "Brat-Kultur Entdecken",
+        exploreSubtitle: "Tauche tiefer in das Brat-Phänomen ein mit diesen Videos und Artikeln, die die Essenz dieser kulturellen Bewegung einfangen.",
+        video1Title: "'Brat Summer' Erklärt",
+        video1Desc: "Das kulturelle Phänomen verstehen, das den Sommer 2024 definierte",
+        video2Title: "Charli XCX - 360 (Offizielles Video)",
+        video2Desc: "Erlebe die ikonische Brat-Ästhetik in Bewegung",
+        video3Title: "Designer's Sicht auf das Brat Cover",
+        video3Desc: "Professionelle Analyse des minimalistischen Design-Ansatzes",
+        video4Title: "Brat Design Analyse",
+        video4Desc: "Tiefe Einblicke in die Typografie und ästhetischen Entscheidungen",
+        articleTitle: "Das Phänomen Hinter Charli XCX's Brat Album",
+        articleDesc: "Ein eingehender Blick darauf, wie ein einfaches grünes Cover zu einem kulturellen Statement wurde",
+        readMore: "Vollständigen Artikel Lesen →"
     },
 
     pt: {
@@ -517,7 +589,25 @@ const translations = {
         german: "Deutsch",
         portuguese: "Português",
         spanish: "Español",
-        italian: "Italiano"
+        italian: "Italiano",
+
+        // SEO Meta Description
+        metaDescription: "Crie e baixe capas de álbum personalizadas no estilo brat em 7 idiomas. Navegue por nossa galeria selecionada, inspire-se e baixe instantaneamente suas capas. Grátis para sempre com suporte multilíngue!",
+
+        // Explore Brat Culture Section
+        exploreTitle: "Explorar a Cultura Brat",
+        exploreSubtitle: "Mergulhe mais fundo no fenômeno brat com estes vídeos e artigos que capturam a essência deste movimento cultural.",
+        video1Title: "'Brat Summer' Explicado",
+        video1Desc: "Entendendo o fenômeno cultural que definiu o verão de 2024",
+        video2Title: "Charli XCX - 360 (Vídeo Oficial)",
+        video2Desc: "Experimente a estética brat icônica em movimento",
+        video3Title: "Visão do Designer sobre a Capa Brat",
+        video3Desc: "Análise profissional da abordagem de design minimalista",
+        video4Title: "Análise do Design Brat",
+        video4Desc: "Mergulho profundo na tipografia e escolhas estéticas",
+        articleTitle: "O Fenômeno Por Trás do Álbum Brat da Charli XCX",
+        articleDesc: "Um olhar aprofundado sobre como uma simples capa verde se tornou uma declaração cultural",
+        readMore: "Ler Artigo Completo →"
     },
 
     es: {
@@ -621,7 +711,25 @@ const translations = {
         german: "Deutsch",
         portuguese: "Português",
         spanish: "Español",
-        italian: "Italiano"
+        italian: "Italiano",
+
+        // SEO Meta Description
+        metaDescription: "Crea y descarga portadas de álbum personalizadas estilo brat en 7 idiomas. Explora nuestra galería seleccionada, inspírate y descarga instantáneamente tus portadas. ¡Gratis para siempre con soporte multiidioma!",
+
+        // Explore Brat Culture Section
+        exploreTitle: "Explorar la Cultura Brat",
+        exploreSubtitle: "Sumérgete más profundamente en el fenómeno brat con estos videos y artículos que capturan la esencia de este movimiento cultural.",
+        video1Title: "'Brat Summer' Explicado",
+        video1Desc: "Entendiendo el fenómeno cultural que definió el verano de 2024",
+        video2Title: "Charli XCX - 360 (Video Oficial)",
+        video2Desc: "Experimenta la estética brat icónica en movimiento",
+        video3Title: "Perspectiva del Diseñador sobre la Portada Brat",
+        video3Desc: "Análisis profesional del enfoque de diseño minimalista",
+        video4Title: "Análisis del Diseño Brat",
+        video4Desc: "Inmersión profunda en la tipografía y decisiones estéticas",
+        articleTitle: "El Fenómeno Detrás del Álbum Brat de Charli XCX",
+        articleDesc: "Una mirada en profundidad sobre cómo una simple portada verde se convirtió en una declaración cultural",
+        readMore: "Leer Artículo Completo →"
     },
 
     it: {
@@ -725,7 +833,25 @@ const translations = {
         german: "Deutsch",
         portuguese: "Português",
         spanish: "Español",
-        italian: "Italiano"
+        italian: "Italiano",
+
+        // SEO Meta Description
+        metaDescription: "Crea e scarica copertine di album personalizzate in stile brat in 7 lingue. Sfoglia la nostra galleria curata, ispirati e scarica istantaneamente le tue copertine. Gratis per sempre con supporto multilingue!",
+
+        // Explore Brat Culture Section
+        exploreTitle: "Esplorare la Cultura Brat",
+        exploreSubtitle: "Immergiti più profondamente nel fenomeno brat con questi video e articoli che catturano l'essenza di questo movimento culturale.",
+        video1Title: "'Brat Summer' Spiegato",
+        video1Desc: "Comprendere il fenomeno culturale che ha definito l'estate 2024",
+        video2Title: "Charli XCX - 360 (Video Ufficiale)",
+        video2Desc: "Sperimenta l'estetica brat iconica in movimento",
+        video3Title: "Il Punto di Vista del Designer sulla Copertina Brat",
+        video3Desc: "Analisi professionale dell'approccio di design minimalista",
+        video4Title: "Analisi del Design Brat",
+        video4Desc: "Immersione profonda nella tipografia e nelle scelte estetiche",
+        articleTitle: "Il Fenomeno Dietro l'Album Brat di Charli XCX",
+        articleDesc: "Uno sguardo approfondito su come una semplice copertina verde è diventata una dichiarazione culturale",
+        readMore: "Leggi Articolo Completo →"
     }
 };
 
@@ -859,6 +985,24 @@ class LanguageManager {
     translatePage() {
         const t = translations[this.currentLanguage];
         if (!t) return;
+
+        // Update meta description
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc && t.metaDescription) {
+            metaDesc.setAttribute('content', t.metaDescription);
+        }
+
+        // Update Open Graph description  
+        const ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc && t.metaDescription) {
+            ogDesc.setAttribute('content', t.metaDescription);
+        }
+
+        // Update Twitter description
+        const twitterDesc = document.querySelector('meta[property="twitter:description"]');
+        if (twitterDesc && t.metaDescription) {
+            twitterDesc.setAttribute('content', t.metaDescription);
+        }
 
         // Translate elements with data-translate attribute
         document.querySelectorAll('[data-translate]').forEach(element => {

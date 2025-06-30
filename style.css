@@ -1667,6 +1667,129 @@ input:focus,
     .feature-item p {
         font-size: 0.875rem;
     }
+
+/* Media Grid Styles */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.video-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    transition: transform 0.2s ease;
+}
+
+.video-item:hover {
+    transform: translateY(-4px);
+}
+
+.video-item iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+    border-radius: var(--radius-md);
+    margin-bottom: 15px;
+}
+
+.video-item h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.video-item p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* Article Highlight */
+.article-highlight {
+    margin: 40px 0;
+    background: linear-gradient(135deg, rgba(138, 206, 0, 0.1), rgba(138, 206, 0, 0.05));
+    border: 1px solid rgba(138, 206, 0, 0.2);
+    border-radius: var(--radius-lg);
+    padding: 25px;
+}
+
+.article-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.article-icon {
+    font-size: 2rem;
+    background: var(--brat-green);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.article-text h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.article-text p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.article-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--brat-green);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.article-link:hover {
+    color: var(--primary-green-hover);
+    transform: translateX(5px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .media-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin: 30px 0;
+    }
+    
+    .video-item {
+        padding: 15px;
+    }
+    
+    .video-item iframe {
+        height: 180px;
+    }
+    
+    .article-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .article-icon {
+        align-self: center;
+    }
+}
     
     .about-stats {
         padding: 40px 25px;
