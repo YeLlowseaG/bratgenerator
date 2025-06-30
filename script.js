@@ -585,7 +585,7 @@ class LiveBratGenerator {
         }
 
         const userText = this.settings.text.toLowerCase();
-        const text = `Just created my "${userText}" brat-style cover! 🎨✨\n\nMade with Brat Generator 💚\nTry it: bratgenerator.store\n\n#brat #charliXCX #bratSummer #albumcover`;
+        const text = `Just created my "${userText}" brat-style cover! 🎨✨\n\nMade with Brat Generator 💚\nTry it: www.bratgenerator.store\n\n#brat #charliXCX #bratSummer #albumcover`;
         const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
         window.open(url, '_blank', 'width=600,height=400');
         
@@ -602,7 +602,7 @@ class LiveBratGenerator {
         }
 
         const userText = this.settings.text.toLowerCase();
-        alert(`📸 Ready to share on Instagram!\n\nSteps:\n1. Download your "${userText}" cover first\n2. Open Instagram and create a new post\n3. Upload your saved image\n4. Copy this caption:\n\n"Just created my '${userText}' brat-style cover! 🎨✨ Made with Brat Generator 💚 Try it: bratgenerator.store #brat #charliXCX #bratSummer #albumcover"`);
+        alert(`📸 Ready to share on Instagram!\n\nSteps:\n1. Download your "${userText}" cover first\n2. Open Instagram and create a new post\n3. Upload your saved image\n4. Copy this caption:\n\n"Just created my '${userText}' brat-style cover! 🎨✨ Made with Brat Generator 💚 Try it: www.bratgenerator.store #brat #charliXCX #bratSummer #albumcover"`);
     }
 }
 
