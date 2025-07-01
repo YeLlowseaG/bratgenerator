@@ -866,6 +866,19 @@ function showGallery() {
     
     updateNavActive('gallery');
     window.scrollTo(0, 0);
+    
+    // Track gallery page view
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'page_view', {
+            'event_category': 'Navigation',
+            'event_label': 'Gallery Page',
+            'custom_parameters': {
+                'page_section': 'gallery',
+                'user_language': window.languageManager?.currentLanguage || 'en',
+                'session_time': Date.now() - (window.sessionStartTime || Date.now())
+            }
+        });
+    }
 }
 
 function showAbout() {

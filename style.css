@@ -85,6 +85,11 @@ body {
     font-weight: 500;
 }
 
+/* Hide sign-in button (no login functionality) */
+.sign-in-btn {
+    display: none !important;
+}
+
 /* Navigation */
 .navbar {
     position: fixed;
@@ -324,12 +329,33 @@ body {
     margin-bottom: 20px;
 }
 
+.hero-title-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
 .hero-title {
     font-size: 4rem;
     font-weight: 700;
-    margin-bottom: 16px;
     text-transform: lowercase;
     letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.hero-seo-tag {
+    font-size: 1.25rem;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.95);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    white-space: nowrap;
 }
 
 .hero-subtitle {
@@ -337,6 +363,15 @@ body {
     opacity: 0.9;
     font-weight: 400;
 }
+
+.hero-sub-subtitle {
+    font-size: 1.125rem;
+    opacity: 0.9;
+    font-weight: 300;
+    margin-top: 8px;
+    color: #ffffff;
+}
+
 
 
 /* How It Works Section */
@@ -2158,6 +2193,18 @@ input:focus,
     }
 }
 
+@media (max-width: 768px) {
+    .hero-title-group {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .hero-seo-tag {
+        font-size: 1.125rem;
+        padding: 6px 12px;
+    }
+}
+
 @media (max-width: 480px) {
     .hero-title {
         font-size: 2rem;
@@ -2165,6 +2212,19 @@ input:focus,
     
     .hero-subtitle {
         font-size: 1.125rem;
+    }
+    
+    .hero-sub-subtitle {
+        font-size: 1rem;
+        margin-top: 6px;
+    }
+    
+    .hero-seo-tag {
+        font-size: 1rem;
+        padding: 6px 10px;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.4;
     }
     
     .editor-section {

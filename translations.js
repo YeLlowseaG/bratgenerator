@@ -10,6 +10,7 @@ const translations = {
         // Hero Section
         heroTitle: "Brat Generator",
         heroSubtitle: "Create your own brat-style album cover in seconds",
+        heroSubSubtitle: "Free PWA tool • 7 languages • Keyboard shortcuts • Instant download • No sign-up required",
 
         // Editor Panel
         editorTitle: "Type your words here ↓",
@@ -140,6 +141,7 @@ const translations = {
         // Hero Section
         heroTitle: "Brat Generator",
         heroSubtitle: "Maak je eigen brat-stijl albumhoes in seconden",
+        heroSubSubtitle: "Gratis PWA tool • 7 talen • Sneltoetsen • Directe download • Geen registratie",
 
         // Editor Panel
         editorTitle: "Typ hier je woorden ↓",
@@ -262,6 +264,7 @@ const translations = {
         // Hero Section
         heroTitle: "Brat Generator",
         heroSubtitle: "Créez votre propre pochette d'album style brat en quelques secondes",
+        heroSubSubtitle: "Outil PWA gratuit • 7 langues • Raccourcis clavier • Téléchargement instantané • Sans inscription",
 
         // Editor Panel
         editorTitle: "Tapez vos mots ici ↓",
@@ -384,6 +387,7 @@ const translations = {
         // Hero Section
         heroTitle: "Brat Generator",
         heroSubtitle: "Erstelle dein eigenes Brat-Style Albumcover in Sekunden",
+        heroSubSubtitle: "Kostenloses PWA Tool • 7 Sprachen • Tastenkürzel • Sofortiger Download • Keine Anmeldung",
 
         // Editor Panel
         editorTitle: "Gib hier deine Wörter ein ↓",
@@ -506,6 +510,7 @@ const translations = {
         // Hero Section
         heroTitle: "Brat Generator",
         heroSubtitle: "Crie sua própria capa de álbum estilo brat em segundos",
+        heroSubSubtitle: "Ferramenta PWA gratuita • 7 idiomas • Atalhos de teclado • Download instantâneo • Sem cadastro",
 
         // Editor Panel
         editorTitle: "Digite suas palavras aqui ↓",
@@ -628,6 +633,7 @@ const translations = {
         // Hero Section
         heroTitle: "Brat Generator",
         heroSubtitle: "Crea tu propia portada de álbum estilo brat en segundos",
+        heroSubSubtitle: "Herramienta PWA gratuita • 7 idiomas • Atajos de teclado • Descarga instantánea • Sin registro",
 
         // Editor Panel
         editorTitle: "Escribe tus palabras aquí ↓",
@@ -750,6 +756,7 @@ const translations = {
         // Hero Section
         heroTitle: "Brat Generator",
         heroSubtitle: "Crea la tua copertina album in stile brat in secondi",
+        heroSubSubtitle: "Strumento PWA gratuito • 7 lingue • Scorciatoie da tastiera • Download istantaneo • Senza registrazione",
 
         // Editor Panel
         editorTitle: "Scrivi le tue parole qui ↓",
