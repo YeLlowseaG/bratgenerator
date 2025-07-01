@@ -29,8 +29,14 @@
     <meta name="theme-color" content="#8ace00">
     <meta name="msapplication-TileColor" content="#8ace00">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Brat Generator">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Brat Generator">
+    <meta name="msapplication-starturl" content="/">
+    <meta name="msapplication-TileImage" content="/android-chrome-192x192.png">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-touch-fullscreen" content="yes">
     
     <!-- Favicon and Icons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -47,6 +53,10 @@
     <meta property="og:title" content="Brat Generator - Advanced PWA Album Cover Creator with Keyboard Shortcuts">
     <meta property="og:description" content="Create brat-style covers in 7 languages with our PWA app! Features: keyboard shortcuts, offline support, fast lazy loading, and instant desktop installation. Try pressing ? for shortcuts!"
     <meta property="og:image" content="https://www.bratgenerator.store/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Brat Generator - Create custom brat-style album covers with PWA app and keyboard shortcuts">
+    <meta property="og:locale" content="en_US">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -54,10 +64,16 @@
     <meta property="twitter:title" content="Brat Generator - PWA App with Keyboard Shortcuts">
     <meta property="twitter:description" content="Advanced brat cover creator! 🚀 PWA app, keyboard shortcuts (press ?), offline support, fast loading. Create in 7 languages! #BratGenerator #PWA #KeyboardShortcuts"
     <meta property="twitter:image" content="https://www.bratgenerator.store/og-image.png">
+    <meta property="twitter:image:alt" content="Brat Generator - Create custom brat-style album covers with PWA app and keyboard shortcuts">
+    <meta property="twitter:site" content="@bratgenerator">
+    <meta property="twitter:creator" content="@bratgenerator">
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"></noscript>
     <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    <link rel="preload" href="translations.js" as="script">
+    <link rel="preload" href="og-image.png" as="image">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -265,14 +281,129 @@
     }
     </script>
     
+    <!-- Organization Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Brat Generator",
+        "url": "https://www.bratgenerator.store",
+        "logo": "https://www.bratgenerator.store/og-image.png",
+        "description": "Free PWA tool for creating brat-style album covers with keyboard shortcuts and multi-language support",
+        "foundingDate": "2024",
+        "sameAs": [
+            "https://twitter.com/bratgenerator",
+            "https://instagram.com/bratgenerator"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "hilenhwong70@gmail.com",
+            "contactType": "Customer Service",
+            "availableLanguage": ["English", "Dutch", "French", "German", "Portuguese", "Spanish", "Italian"]
+        },
+        "offers": {
+            "@type": "Offer",
+            "name": "Brat Generator Service",
+            "description": "Free album cover creation tool",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+        }
+    }
+    </script>
+    
+    <!-- Gallery ImageObject Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Brat Generator Gallery",
+        "description": "Curated collection of brat-style album covers created with Brat Generator",
+        "numberOfItems": 12,
+        "itemListElement": [
+            {
+                "@type": "ImageObject",
+                "position": 1,
+                "name": "Brat Summer Cover",
+                "description": "Green brat-style album cover with 'brat summer' text",
+                "contentUrl": "https://www.bratgenerator.store/gallery/brat-summer.png",
+                "thumbnailUrl": "https://www.bratgenerator.store/gallery/brat-summer-thumb.png",
+                "width": 800,
+                "height": 800,
+                "encodingFormat": "image/png",
+                "creator": {
+                    "@type": "Organization",
+                    "name": "Brat Generator"
+                },
+                "keywords": "brat summer, album cover, charli xcx style, lime green"
+            },
+            {
+                "@type": "ImageObject", 
+                "position": 2,
+                "name": "Gezelligheid Brat Cover",
+                "description": "Dutch-inspired brat cover with 'gezelligheid' text",
+                "contentUrl": "https://www.bratgenerator.store/gallery/gezelligheid.png",
+                "thumbnailUrl": "https://www.bratgenerator.store/gallery/gezelligheid-thumb.png",
+                "width": 800,
+                "height": 800,
+                "encodingFormat": "image/png",
+                "creator": {
+                    "@type": "Organization",
+                    "name": "Brat Generator"
+                },
+                "keywords": "gezelligheid, dutch culture, netherlands, cozy"
+            },
+            {
+                "@type": "ImageObject",
+                "position": 3,
+                "name": "Dolce Vita Brat Cover", 
+                "description": "Italian-inspired brat cover with 'dolce vita' text",
+                "contentUrl": "https://www.bratgenerator.store/gallery/dolce-vita.png",
+                "thumbnailUrl": "https://www.bratgenerator.store/gallery/dolce-vita-thumb.png",
+                "width": 800,
+                "height": 800,
+                "encodingFormat": "image/png",
+                "creator": {
+                    "@type": "Organization",
+                    "name": "Brat Generator"
+                },
+                "keywords": "dolce vita, italian culture, italy, sweet life"
+            }
+        ]
+    }
+    </script>
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6KFQTY258R"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      
+      // Track session start time for analytics
+      window.sessionStartTime = Date.now();
 
-      gtag('config', 'G-6KFQTY258R');
+      gtag('config', 'G-6KFQTY258R', {
+        'custom_map': {
+          'custom_parameter_1': 'user_language',
+          'custom_parameter_2': 'device_type',
+          'custom_parameter_3': 'session_duration'
+        }
+      });
+      
+      // Track initial page load with enhanced data
+      gtag('event', 'page_view', {
+        'event_category': 'Engagement',
+        'custom_parameters': {
+          'user_language': navigator.language,
+          'device_type': /Mobile|Android|iPhone/.test(navigator.userAgent) ? 'mobile' : 'desktop',
+          'screen_resolution': `${window.screen.width}x${window.screen.height}`,
+          'viewport_size': `${window.innerWidth}x${window.innerHeight}`,
+          'color_depth': window.screen.colorDepth,
+          'timezone': Intl.DateTimeFormat().resolvedOptions().timeZone,
+          'referrer': document.referrer || 'direct'
+        }
+      });
     </script>
 </head>
 <body>

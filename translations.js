@@ -119,7 +119,15 @@ const translations = {
         video4Desc: "Deep dive into the typography and aesthetic choices",
         articleTitle: "The Phenomenon Behind Charli XCX's Brat Album",
         articleDesc: "An in-depth look at how a simple green cover became a cultural statement",
-        readMore: "Read Full Article →"
+        readMore: "Read Full Article →",
+
+        // FAQ
+        faq: "FAQ",
+        faqTitle: "Frequently Asked Questions",
+        faqSubtitle: "Find answers to common questions about using Brat Generator",
+        faqContactTitle: "Still have questions?",
+        faqContactText: "Can't find what you're looking for? We're here to help!",
+        faqContactBtn: "Contact Support"
     },
 
     nl: {

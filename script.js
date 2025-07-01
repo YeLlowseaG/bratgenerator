@@ -27,15 +27,45 @@ class LiveBratGenerator {
     }
 
     setupEventListeners() {
-        // Text input - real-time updates
+        // Text input - real-time updates with analytics
         this.textInput.addEventListener('input', (e) => {
             this.settings.text = e.target.value;
             this.updatePreview();
+            
+            // Track text input engagement
+            if (typeof gtag !== 'undefined' && e.target.value.length > 0) {
+                gtag('event', 'text_input', {
+                    'event_category': 'User Engagement',
+                    'event_label': 'Text Entry',
+                    'custom_parameters': {
+                        'text_length': e.target.value.length,
+                        'word_count': e.target.value.trim().split(/\s+/).length,
+                        'user_language': window.languageManager?.currentLanguage || 'en',
+                        'funnel_step': 'text_entered'
+                    }
+                });
+            }
+        });
+        
+        // Track when user starts typing (first character)
+        this.textInput.addEventListener('focus', () => {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'user_engagement', {
+                    'event_category': 'User Interface',
+                    'event_label': 'Text Input Focus',
+                    'custom_parameters': {
+                        'engagement_type': 'text_input_focus',
+                        'user_language': window.languageManager?.currentLanguage || 'en'
+                    }
+                });
+            }
         });
 
-        // Mode selection - instant updates
+        // Mode selection - instant updates with analytics
         this.modeBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
+                const previousMode = this.settings.mode;
+                
                 this.modeBtns.forEach(b => {
                     b.classList.remove('active');
                     b.setAttribute('aria-checked', 'false');
@@ -44,6 +74,21 @@ class LiveBratGenerator {
                 btn.setAttribute('aria-checked', 'true');
                 this.settings.mode = btn.dataset.mode;
                 this.updatePreview();
+                
+                // Track mode selection
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'mode_selection', {
+                        'event_category': 'User Interaction',
+                        'event_label': 'Mode Switch',
+                        'custom_parameters': {
+                            'previous_mode': previousMode,
+                            'new_mode': this.settings.mode,
+                            'user_language': window.languageManager?.currentLanguage || 'en',
+                            'has_text': this.settings.text.length > 0,
+                            'funnel_step': 'mode_selected'
+                        }
+                    });
+                }
             });
         });
 
@@ -384,6 +429,19 @@ class LiveBratGenerator {
                     }
                 ]
             });
+            
+            // Track failed download attempt
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'download_failed', {
+                    'event_category': 'User Experience',
+                    'event_label': 'Empty Text Input',
+                    'custom_parameters': {
+                        'failure_reason': 'no_text_entered',
+                        'user_language': window.languageManager?.currentLanguage || 'en',
+                        'device_type': /Mobile|Android|iPhone/.test(navigator.userAgent) ? 'mobile' : 'desktop'
+                    }
+                });
+            }
             return;
         }
         
@@ -433,17 +491,36 @@ class LiveBratGenerator {
         link.click();
         document.body.removeChild(link);
 
-        // Track download event
+        // Track detailed download event
         if (typeof gtag !== 'undefined') {
             gtag('event', 'download', {
                 'event_category': 'Engagement',
                 'event_label': 'Main Generator Download',
                 'value': 1,
                 'custom_parameters': {
+                    'text_content': this.settings.text.toLowerCase(),
                     'text_length': this.settings.text.length,
+                    'word_count': this.settings.text.trim().split(/\s+/).length,
                     'mode': this.settings.mode,
                     'speed_lines': this.settings.speedLines,
-                    'filename': filename
+                    'filename': filename,
+                    'user_language': window.languageManager?.currentLanguage || 'en',
+                    'device_type': /Mobile|Android|iPhone/.test(navigator.userAgent) ? 'mobile' : 'desktop',
+                    'screen_width': window.screen.width,
+                    'viewport_width': window.innerWidth,
+                    'session_time': Date.now() - (window.sessionStartTime || Date.now()),
+                    'canvas_dimensions': `${this.canvas.width}x${this.canvas.height}`
+                }
+            });
+            
+            // Track conversion funnel step
+            gtag('event', 'funnel_step', {
+                'event_category': 'Conversion',
+                'event_label': 'Cover Creation Completed',
+                'custom_parameters': {
+                    'funnel_name': 'cover_creation',
+                    'step_number': 4,
+                    'step_name': 'download_completed'
                 }
             });
         }

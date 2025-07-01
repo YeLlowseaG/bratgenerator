@@ -7,6 +7,8 @@ Sitemap: https://www.bratgenerator.store/sitemap.xml
 # Block access to internal files and development resources
 Disallow: /generate-og-image.html
 Disallow: /seo-offsite-strategy.md
+Disallow: /security-config.md
+Disallow: /*.md$
 
 # Explicitly allow important resources for SEO
 Allow: /og-image.png
