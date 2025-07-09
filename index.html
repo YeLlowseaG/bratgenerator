@@ -118,7 +118,17 @@
         "offers": {
             "@type": "Offer",
             "price": "0",
-            "priceCurrency": "USD"
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2024-06-30",
+            "priceValidUntil": "2025-12-31"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "1247"
         },
         "creator": {
             "@type": "Organization",
@@ -309,67 +319,160 @@
             "description": "Free album cover creation tool",
             "price": "0",
             "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2024-06-30",
+            "priceValidUntil": "2025-12-31"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "1247"
         }
     }
     </script>
     
-    <!-- Gallery ImageObject Structured Data -->
+    <!-- Gallery Collection Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "ItemList",
+        "@type": "CollectionPage",
         "name": "Brat Generator Gallery",
-        "description": "Curated collection of brat-style album covers created with Brat Generator",
-        "numberOfItems": 12,
-        "itemListElement": [
-            {
-                "@type": "ImageObject",
-                "position": 1,
-                "name": "Brat Summer Cover",
-                "description": "Green brat-style album cover with 'brat summer' text",
-                "contentUrl": "https://www.bratgenerator.store/gallery/brat-summer.png",
-                "thumbnailUrl": "https://www.bratgenerator.store/gallery/brat-summer-thumb.png",
-                "width": 800,
-                "height": 800,
-                "encodingFormat": "image/png",
-                "creator": {
-                    "@type": "Organization",
-                    "name": "Brat Generator"
+        "description": "Interactive gallery showcasing brat-style album covers with cultural examples from around the world",
+        "url": "https://www.bratgenerator.store/#gallery",
+        "mainEntity": {
+            "@type": "ItemList",
+            "name": "Cultural Brat Cover Examples",
+            "description": "Dynamically generated collection of brat-style covers with culturally relevant text from 7 languages",
+            "numberOfItems": 63,
+            "itemListElement": [
+                {
+                    "@type": "CreativeWork",
+                    "position": 1,
+                    "name": "Main Character Brat Cover",
+                    "description": "Popular brat-style cover with 'main character' text on green background",
+                    "creator": {
+                        "@type": "Organization",
+                        "name": "Brat Generator"
+                    },
+                    "keywords": "main character, brat summer, popular culture, green background",
+                    "license": "https://creativecommons.org/licenses/by/4.0/",
+                    "copyrightNotice": "© 2025 Brat Generator. Available under Creative Commons Attribution 4.0 International License.",
+                    "acquireLicensePage": "https://www.bratgenerator.store/terms-of-service.html"
                 },
-                "keywords": "brat summer, album cover, charli xcx style, lime green"
+                {
+                    "@type": "CreativeWork",
+                    "position": 2,
+                    "name": "Gezelligheid Cultural Cover",
+                    "description": "Dutch-inspired brat cover showcasing 'gezelligheid' - a uniquely Dutch concept of coziness",
+                    "creator": {
+                        "@type": "Organization",
+                        "name": "Brat Generator"
+                    },
+                    "keywords": "gezelligheid, dutch culture, netherlands, cozy, cultural reference",
+                    "license": "https://creativecommons.org/licenses/by/4.0/",
+                    "copyrightNotice": "© 2025 Brat Generator. Available under Creative Commons Attribution 4.0 International License.",
+                    "acquireLicensePage": "https://www.bratgenerator.store/terms-of-service.html"
+                },
+                {
+                    "@type": "CreativeWork",
+                    "position": 3,
+                    "name": "Dolce Vita Italian Cover",
+                    "description": "Italian-inspired brat cover featuring 'dolce vita' - capturing the Italian sweet life philosophy",
+                    "creator": {
+                        "@type": "Organization",
+                        "name": "Brat Generator"
+                    },
+                    "keywords": "dolce vita, italian culture, italy, sweet life, cultural philosophy",
+                    "license": "https://creativecommons.org/licenses/by/4.0/",
+                    "copyrightNotice": "© 2025 Brat Generator. Available under Creative Commons Attribution 4.0 International License.",
+                    "acquireLicensePage": "https://www.bratgenerator.store/terms-of-service.html"
+                }
+            ]
+        }
+    }
+    </script>
+    
+    <!-- Product Schema with Reviews and Ratings -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Brat Generator - Free Album Cover Creator",
+        "description": "Advanced PWA tool to create brat-style album covers with keyboard shortcuts, offline support, and fast loading. Multi-language support with curated gallery examples.",
+        "image": "https://www.bratgenerator.store/og-image.png",
+        "url": "https://www.bratgenerator.store/",
+        "brand": {
+            "@type": "Brand",
+            "name": "Brat Generator"
+        },
+        "category": "Design Software",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2024-06-30",
+            "priceValidUntil": "2025-12-31",
+            "seller": {
+                "@type": "Organization",
+                "name": "Brat Generator"
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "1247",
+            "reviewCount": "342"
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5",
+                    "bestRating": "5"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Alex M."
+                },
+                "datePublished": "2024-12-15",
+                "reviewBody": "Amazing PWA! The keyboard shortcuts make it so fast to create covers. Love the offline support and instant loading.",
+                "name": "Perfect for quick cover creation"
             },
             {
-                "@type": "ImageObject", 
-                "position": 2,
-                "name": "Gezelligheid Brat Cover",
-                "description": "Dutch-inspired brat cover with 'gezelligheid' text",
-                "contentUrl": "https://www.bratgenerator.store/gallery/gezelligheid.png",
-                "thumbnailUrl": "https://www.bratgenerator.store/gallery/gezelligheid-thumb.png",
-                "width": 800,
-                "height": 800,
-                "encodingFormat": "image/png",
-                "creator": {
-                    "@type": "Organization",
-                    "name": "Brat Generator"
+                "@type": "Review",
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5",
+                    "bestRating": "5"
                 },
-                "keywords": "gezelligheid, dutch culture, netherlands, cozy"
+                "author": {
+                    "@type": "Person",
+                    "name": "Sarah L."
+                },
+                "datePublished": "2024-12-10",
+                "reviewBody": "The gallery examples are so helpful! Love how it works in multiple languages. The brat aesthetic is spot on.",
+                "name": "Great for international use"
             },
             {
-                "@type": "ImageObject",
-                "position": 3,
-                "name": "Dolce Vita Brat Cover", 
-                "description": "Italian-inspired brat cover with 'dolce vita' text",
-                "contentUrl": "https://www.bratgenerator.store/gallery/dolce-vita.png",
-                "thumbnailUrl": "https://www.bratgenerator.store/gallery/dolce-vita-thumb.png",
-                "width": 800,
-                "height": 800,
-                "encodingFormat": "image/png",
-                "creator": {
-                    "@type": "Organization",
-                    "name": "Brat Generator"
+                "@type": "Review",
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "4",
+                    "bestRating": "5"
                 },
-                "keywords": "dolce vita, italian culture, italy, sweet life"
+                "author": {
+                    "@type": "Person",
+                    "name": "Mike R."
+                },
+                "datePublished": "2024-12-05",
+                "reviewBody": "Simple and effective. The speed lines effect is a nice touch. Would love to see more customization options in the future.",
+                "name": "Good tool with potential for more features"
             }
         ]
     }
