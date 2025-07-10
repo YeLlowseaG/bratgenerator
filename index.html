@@ -94,12 +94,12 @@
     <!-- Content Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self'; 
-        script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; 
+        script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://www.googleadservices.com https://googleads.g.doubleclick.net; 
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
         font-src 'self' https://fonts.gstatic.com; 
-        img-src 'self' data: https:; 
-        connect-src 'self' https://www.google-analytics.com; 
-        frame-src https://www.youtube-nocookie.com; 
+        img-src 'self' data: https: https://pagead2.googlesyndication.com https://www.google.com https://googleads.g.doubleclick.net; 
+        connect-src 'self' https://www.google-analytics.com https://pagead2.googlesyndication.com https://www.google.com; 
+        frame-src https://www.youtube-nocookie.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; 
         object-src 'none'; 
         base-uri 'self';
         form-action 'self'
@@ -477,6 +477,10 @@
         ]
     }
     </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8584133389230564"
+         crossorigin="anonymous"></script>
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6KFQTY258R"></script>
